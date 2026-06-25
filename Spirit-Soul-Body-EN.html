@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spirit, Soul and Body — Bible Study</title>
+<style>
+  :root{
+    --bg:#f6f9f4;
+    --salvia-1:#eef4ea;
+    --salvia-2:#dfecd8;
+    --salvia-borde:#bcd4b0;
+    --verde-hondo:#3f6b4c;
+    --verde-titulo:#365c41;
+    --oro:#c9a24b;
+    --oro-suave:#e8d6a8;
+    --rosa-bg:#fceef1;
+    --rosa-borde:#eac4d0;
+    --rosa-texto:#824a5e;
+    --rosa-ref:#a3637a;
+    --texto:#2f3a33;
+    --panel:#eef4ea;
+    --panel-borde:#cadec2;
+    --destacado-bg:#fbf6e9;
+    --destacado-borde:#e3cf94;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;
+    font-size:19px;
+    line-height:1.78;
+    color:var(--texto);
+    background:
+      radial-gradient(circle at 12% 8%, #ffffff 0%, transparent 40%),
+      var(--bg);
+  }
+  .contenedor{display:flex;min-height:100vh;}
+
+  /* ---------- ÍNDICE ---------- */
+  nav.indice{
+    width:330px;flex-shrink:0;
+    background:linear-gradient(180deg,#f0f6ec,#e6f0e0);
+    border-right:1px solid var(--panel-borde);
+    padding:34px 22px;
+    position:sticky;top:0;height:100vh;overflow-y:auto;
+    box-shadow:inset -10px 0 20px -18px rgba(63,107,76,.35);
+  }
+  nav.indice::-webkit-scrollbar{width:9px;}
+  nav.indice::-webkit-scrollbar-thumb{background:var(--salvia-borde);border-radius:6px;}
+  nav.indice .marca{
+    text-align:center;margin-bottom:20px;padding-bottom:18px;
+    border-bottom:1px solid var(--salvia-borde);
+  }
+  nav.indice .marca .mini{
+    font-size:11px;letter-spacing:3px;text-transform:uppercase;
+    color:var(--oro);font-family:Georgia,serif;
+  }
+  nav.indice .marca h2{
+    font-size:20px;color:var(--verde-titulo);margin:6px 0 0;font-weight:600;line-height:1.3;
+  }
+  nav.indice a{
+    display:block;color:var(--verde-hondo);text-decoration:none;
+    padding:5px 12px;border-radius:8px;font-size:15px;line-height:1.35;
+    transition:background .25s,color .25s,padding .25s;
+    border-left:3px solid transparent;
+  }
+  nav.indice a.parte{font-weight:600;margin-top:13px;font-size:15.5px;}
+  nav.indice a.sub{padding-left:26px;font-size:14px;color:#5d7d64;}
+  nav.indice a:hover{background:var(--salvia-2);padding-left:16px;}
+  nav.indice a.sub:hover{padding-left:30px;}
+  nav.indice a.activo{
+    background:#fff;border-left:3px solid var(--oro);
+    color:var(--verde-titulo);font-weight:600;
+  }
+
+  /* ---------- CONTENIDO ---------- */
+  main{flex:1;padding:56px 64px 100px;max-width:900px;}
+
+  .portada{
+    text-align:center;position:relative;
+    background:linear-gradient(155deg,#eef5e9 0%,#f7eef1 100%);
+    border-radius:22px;padding:64px 40px 56px;margin-bottom:20px;
+    box-shadow:0 10px 40px -22px rgba(63,107,76,.5);
+    overflow:hidden;
+  }
+  .portada::before{
+    content:"";position:absolute;inset:14px;
+    border:1px solid var(--oro-suave);border-radius:16px;pointer-events:none;
+  }
+  .portada .orn{color:var(--oro);font-size:26px;letter-spacing:8px;}
+  .portada h1{
+    font-size:46px;color:var(--verde-titulo);margin:14px 0 6px;
+    font-weight:600;letter-spacing:.5px;
+  }
+  .portada p.sub{font-size:21px;color:var(--rosa-texto);font-style:italic;margin:0;}
+
+  .divisor{
+    text-align:center;color:var(--oro);font-size:18px;letter-spacing:10px;
+    margin:26px 0 30px;
+  }
+
+  h2.parte{
+    font-size:27px;color:var(--verde-titulo);font-weight:600;
+    margin:56px 0 8px;display:flex;align-items:center;gap:14px;scroll-margin-top:20px;
+  }
+  h2.parte .letra{
+    flex-shrink:0;width:46px;height:46px;border-radius:50%;
+    background:var(--verde-hondo);color:#fff;font-size:20px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 14px -4px rgba(63,107,76,.6);
+  }
+  hr.regla{
+    height:2px;border:0;margin:0 0 26px;
+    background:linear-gradient(90deg,var(--oro) 0%,var(--salvia-borde) 35%,transparent 80%);
+  }
+  h3.seccion{
+    font-size:22px;color:var(--verde-titulo);font-weight:600;
+    margin:40px 0 14px;display:flex;align-items:baseline;gap:10px;scroll-margin-top:20px;
+  }
+  h3.seccion .num{
+    font-size:14px;color:var(--oro);font-weight:700;letter-spacing:1px;
+    border:1px solid var(--oro-suave);border-radius:6px;padding:1px 8px;
+    flex-shrink:0;position:relative;top:-2px;
+  }
+  h4.subsec{
+    font-size:18.5px;color:var(--verde-hondo);font-weight:600;
+    margin:26px 0 10px;font-style:italic;
+  }
+
+  .caja{
+    background:#fbfdf9;border:1px solid var(--salvia-borde);
+    border-radius:14px;padding:18px 24px;margin:22px 0;
+    box-shadow:0 6px 22px -18px rgba(63,107,76,.55);
+  }
+  .caja.acento{
+    background:var(--destacado-bg);border:1px solid var(--destacado-borde);
+  }
+  .caja .titulo-caja{
+    font-weight:600;color:var(--verde-titulo);font-size:18px;margin-bottom:6px;
+    display:block;
+  }
+
+  .biblia{
+    position:relative;background:var(--rosa-bg);
+    border:1px solid var(--rosa-borde);border-radius:14px;
+    padding:20px 26px 18px 32px;margin:24px 0;
+    font-style:italic;color:var(--rosa-texto);
+    box-shadow:0 8px 26px -20px rgba(130,74,94,.6);
+  }
+  .biblia::before{
+    content:"\201C";position:absolute;left:12px;top:6px;
+    font-size:42px;color:var(--rosa-borde);font-family:Georgia,serif;line-height:1;
+  }
+  .biblia .ref{
+    display:block;font-style:normal;font-weight:600;margin-top:10px;
+    font-size:15px;color:var(--rosa-ref);letter-spacing:.3px;
+  }
+  .biblia.repetida{
+    font-style:normal;padding:11px 26px;background:#fbf2f5;
+    color:var(--rosa-ref);box-shadow:none;
+  }
+  .biblia.repetida::before{display:none;}
+  .biblia.repetida .ref{margin-top:0;}
+  .biblia em{font-style:normal;font-weight:600;}
+
+  ul.limpia{margin:14px 0;padding-left:8px;list-style:none;}
+  ul.limpia li{margin:8px 0;padding-left:24px;position:relative;}
+  ul.limpia li::before{
+    content:"";position:absolute;left:4px;top:12px;
+    width:7px;height:7px;border-radius:50%;background:var(--oro);
+  }
+  strong{color:var(--verde-titulo);font-weight:600;}
+  .nota{font-size:15.5px;color:#7a8a7d;font-style:italic;}
+  .pregunta{
+    color:var(--rosa-texto);font-style:italic;font-weight:600;
+  }
+  p{margin:14px 0;}
+  .pie{
+    text-align:center;color:var(--oro);font-size:16px;letter-spacing:8px;
+    margin:60px 0 10px;
+  }
+  .cierre{
+    text-align:center;font-style:italic;color:var(--verde-hondo);
+    font-size:17px;margin-bottom:40px;
+  }
+</style>
+</head>
+<body>
+<div class="contenedor">
+  <nav class="indice">
+    <div class="marca">
+      <div class="mini">Bible study</div>
+      <h2>Spirit, Soul and Body</h2>
+    </div>
+    <a href="#portada" class="parte">Cover</a>
+
+    <a href="#parte-a" class="parte">A · The three parts of our being</a>
+    <a href="#a1" class="sub">A.1 The body</a>
+    <a href="#a2" class="sub">A.2 The soul</a>
+    <a href="#a3" class="sub">A.3 The flesh (body + soul)</a>
+    <a href="#a4" class="sub">A.4 The spirit</a>
+
+    <a href="#parte-b" class="parte">B · The spirit and the natural</a>
+    <a href="#b1" class="sub">B.1 Not perceived naturally</a>
+    <a href="#b2" class="sub">B.2 The natural mind cannot discern</a>
+    <a href="#b3" class="sub">B.3 You only trust a mirror</a>
+
+    <a href="#parte-c" class="parte">C · Two different mirrors</a>
+    <a href="#c1" class="sub">C.1 The natural and spiritual mirror</a>
+    <a href="#c2" class="sub">C.2 The mirror of the spirit</a>
+    <a href="#c3" class="sub">C.3 It's already in your spirit!</a>
+
+    <a href="#parte-d" class="parte">D · A new creation</a>
+    <a href="#d1" class="sub">D.1 What was created new?</a>
+    <a href="#d2" class="sub">D.2 Your spirit was created new</a>
+    <a href="#d3" class="sub">D.3 Spirit of Christ and Holy Spirit</a>
+    <a href="#d4" class="sub">D.4 Your new nature</a>
+    <a href="#d5" class="sub">D.5 What part of you died?</a>
+
+    <a href="#parte-e" class="parte">E · Righteousness and no condemnation</a>
+    <a href="#e1" class="sub">E.1 Jesus put His righteousness in you</a>
+    <a href="#e2" class="sub">E.2 No condemnation from God</a>
+    <a href="#e3" class="sub">E.3 If the believer sins</a>
+    <a href="#e4" class="sub">E.4 The balance of the heart</a>
+    <a href="#e5" class="sub">E.5 Does it give a right to sin?</a>
+
+    <a href="#parte-f" class="parte">F · Consequences of not understanding</a>
+    <a href="#f1" class="sub">F.1 Symptoms and frustrations</a>
+    <a href="#f2" class="sub">F.2 What this prevents</a>
+    <a href="#f3" class="sub">F.3 Faith and unbelief at once</a>
+
+    <a href="#parte-g" class="parte">G · How to receive what you already have</a>
+    <a href="#g1" class="sub">G.1 Bring the soul into agreement</a>
+    <a href="#g2" class="sub">G.2 Your soul has a valve</a>
+    <a href="#g3" class="sub">G.3 The fruit: renewing the mind</a>
+    <a href="#g4" class="sub">G.4 Conformed or transformed?</a>
+    <a href="#g5" class="sub">G.5 Digesting the Word</a>
+    <a href="#g6" class="sub">G.6 Think spiritually, not carnally</a>
+    <a href="#g7" class="sub">G.7 Transforming faith</a>
+
+    <a href="#cierre" class="parte">Closing · A process, not a moment</a>
+  </nav>
+
+  <main>
+    <section class="portada" id="portada">
+      <div class="orn">&#10086;</div>
+      <h1>Spirit, Soul and Body</h1>
+      <p class="sub">Our being is made of three parts</p>
+    </section>
+
+    <div class="divisor">&#10022; &#10022; &#10022;</div>
+
+    <div class="biblia">
+      Now may the God of peace himself sanctify you completely, and may <em>your whole spirit, soul, and body</em> be kept blameless at the coming of our Lord Jesus, the Messiah.
+      <span class="ref">1 Thessalonians 5:23 &nbsp;·&nbsp; "your whole being" — ISV</span>
+    </div>
+
+    <div class="biblia">
+      For the word of God is <em>living</em> and <em>powerful</em>, and sharper than any two-edged sword, piercing even to the division of <em>soul and spirit</em>, and of <em>joints and marrow</em>, and is a discerner of the <em>thoughts and intents of the heart</em>.
+      <span class="ref">Hebrews 4:12</span>
+    </div>
+
+    <!-- ===================== PART A ===================== -->
+    <h2 class="parte" id="parte-a"><span class="letra">A</span> The three parts of our being</h2>
+    <hr class="regla">
+
+    <h3 class="seccion" id="a1"><span class="num">A.1</span> The body</h3>
+    <p>The body is very obvious: you only have to look at yourself in a <strong>mirror</strong>. It works through the <strong>five senses</strong>: sight, hearing, smell, taste, and touch.</p>
+    <div class="caja">
+      <span class="titulo-caja">In itself it is a very complex organism</span>
+      <ul class="limpia">
+        <li>It is controlled <strong>chemically</strong> and <strong>electrically</strong> by the brain.</li>
+        <li>It handles many <strong>functions</strong> automatically.</li>
+        <li>It has <strong>reflexes</strong> in response to actions.</li>
+        <li>Some functions <strong>already came</strong> with us before we were born, built into the brain.</li>
+        <li>Others need a <strong>process</strong> of learning to be controlled, and are then recorded in the brain to function <strong>autonomously</strong>.</li>
+      </ul>
+    </div>
+
+    <h3 class="seccion" id="a2"><span class="num">A.2</span> The soul</h3>
+    <p>You cannot see the soul, but you can touch it with words or images. When you speak to me, you speak to my soul. It is my:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>mind</li>
+        <li>intellect</li>
+        <li>will</li>
+        <li>emotions</li>
+        <li>desires</li>
+        <li>intentions</li>
+        <li>conscience</li>
+      </ul>
+    </div>
+    <p>The <strong>conscience</strong> is part of the soul. It was given by God to "all men," to reveal all ungodliness and unrighteousness.</p>
+    <div class="biblia">
+      For the wrath of <em>God is revealed</em> from heaven against all <em>ungodliness and unrighteousness of men</em>, who suppress the truth in unrighteousness, because what may be known of God <em>is manifest</em> in them, for <em>God has shown it</em> to them.
+      <span class="ref">Romans 1:18-19</span>
+    </div>
+    <div class="biblia">
+      Now the Spirit expressly says that in latter times some will depart from the faith, giving heed to deceiving spirits and doctrines of demons, speaking lies in hypocrisy, having their <em>own conscience seared</em>.
+      <span class="ref">1 Timothy 4:1-2</span>
+    </div>
+    <p>The soul can also be called <strong>personality</strong> <span class="nota">(the mental-emotional part)</span>.</p>
+
+    <h3 class="seccion" id="a3"><span class="num">A.3</span> The flesh: body + soul</h3>
+    <p>We can call the body and the soul together <strong>the flesh</strong>.</p>
+
+    <h4 class="subsec">Can I touch your flesh? Yes!</h4>
+    <div class="caja">
+      <ul class="limpia">
+        <li><strong>Body:</strong> by pinching you. You can see it in a mirror.</li>
+        <li><strong>Soul:</strong> I can touch you with words and make you happy, sad, angry; I can hurt you.</li>
+      </ul>
+    </div>
+    <p>There is a <strong>deep connection</strong> between the <strong>body</strong> and the <strong>soul</strong>:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>A <strong>sick mind</strong> can make the <strong>body</strong> sick.</li>
+        <li>A <strong>sick body</strong> can make the mind, emotions, and will sick.</li>
+      </ul>
+    </div>
+    <div class="caja acento">
+      <span class="titulo-caja">Conclusion</span>
+      In the <strong>natural</strong>, you are in <strong>contact</strong> with other people only through your <strong>body</strong> and your <strong>soul</strong>. This is how the world in general communicates and lives their lives.
+    </div>
+
+    <h3 class="seccion" id="a4"><span class="num">A.4</span> The spirit</h3>
+    <p>The spirit is a completely different matter. There is <strong>no direct connection</strong> between the <strong>flesh and the spirit</strong>.</p>
+    <div class="biblia">
+      That which is born of the <em>flesh is flesh</em>, and that which is born of the <em>Spirit is spirit</em>.
+      <span class="ref">John 3:6</span>
+    </div>
+    <p>Jesus taught about <strong>two different births</strong>.</p>
+    <div class="biblia">
+      Unless one is <em>born</em> of <em>water</em> and the <em>Spirit</em>, he cannot enter the <em>kingdom of God</em>.
+      <span class="ref">John 3:5</span>
+    </div>
+    <p>Jesus is referring to a second <strong>birth that is NOT physical</strong>, but <strong>spiritual</strong>.</p>
+
+    <div class="caja">
+      <span class="titulo-caja">Example 1 · The three-step ladder</span>
+      <p>Imagine a ladder with three steps. Most people interact between steps <strong>#1 (body)</strong> and <strong>#2 (soul)</strong>.</p>
+      <p>Do not try to make them understand the spiritual truths of step <strong>#3</strong>: that dimension does not exist for them. Their spirit is dead, separated from God, from His Word, from the spiritual world, and from spiritual truths.</p>
+      <p>There is no connection with the Holy Spirit who reveals truth, so they cannot perceive spiritual reality, unless they receive Christ.</p>
+    </div>
+
+    <div class="caja">
+      <span class="titulo-caja">Example 2 · The paper and the cube</span>
+      <p>Imagine a sheet of paper and a cube, side by side. A being living inside the paper can only look forward, backward, and to both sides, but <strong>cannot look up</strong>: there is no "up" for it.</p>
+      <p>Whoever lives inside the cube can do the same as the one in the paper, but can also look <strong>up</strong>.</p>
+    </div>
+
+    <p>For the born-again believer, the <strong>spirit</strong> is the part through which:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li><strong>God</strong> communicates with him,</li>
+        <li>and through which the <strong>Life and Power of God</strong> flow.</li>
+      </ul>
+    </div>
+    <div class="biblia">
+      The <em>body without the spirit is dead</em>.
+      <span class="ref">James 2:26</span>
+    </div>
+    <p>Of your three parts (body, soul, and spirit), the part that is <strong>giving life</strong> within you is <strong>your spirit</strong>.</p>
+
+    <!-- ===================== PART B ===================== -->
+    <h2 class="parte" id="parte-b"><span class="letra">B</span> The spirit and the natural</h2>
+    <hr class="regla">
+
+    <h3 class="seccion" id="b1"><span class="num">B.1</span> Not perceived by the natural</h3>
+    <div class="caja">
+      <ul class="limpia">
+        <li>The spirit <strong>CANNOT</strong> be felt, seen, or touched; only the soul or the body can be touched.</li>
+        <li>You <strong>cannot access your spirit</strong> from the natural.</li>
+        <li>Your flesh <strong>cannot reveal</strong> anything to you about your spirit.</li>
+      </ul>
+    </div>
+
+    <h3 class="seccion" id="b2"><span class="num">B.2</span> The natural mind cannot discern the spiritual</h3>
+    <p>The <strong>natural</strong> world was <strong>created</strong> by the <strong>spiritual</strong> world. The natural world <strong>cannot discern</strong> or describe something it is not part of.</p>
+    <div class="caja">
+      <span class="titulo-caja">Example · The computer</span>
+      It is as if a computer tried to discover and describe by itself who created it; to discern the human being. This information is not within the computer, unless the human being reveals it to it.
+    </div>
+    <p>The <strong>false religions</strong> of the world are inventions of the <strong>soul</strong>, in an attempt to discern the spiritual world from the intellect and emotions. Much like a computer trying to describe its creator.</p>
+    <p>But the <strong>soul</strong> can <strong>never discern</strong> the <strong>spiritual</strong>; therefore, they are human attempts trying to describe knowledge that is <strong>not</strong> within them.</p>
+    <p>The <strong>spiritual</strong> world needs to be <strong>revealed</strong> by the <strong>spiritual</strong> world. Even though God has put eternity within us, the knowledge of the spiritual is not within us: it needs to be revealed by the Holy Spirit through the Word of God.</p>
+    <div class="biblia">
+      He [God] has put <em>eternity</em> in their <em>hearts</em>, except that <em>no one</em> can <em>find out</em> the work <em>that God does</em>, from beginning to end.
+      <span class="ref">Ecclesiastes 3:11</span>
+    </div>
+
+    <h3 class="seccion" id="b3"><span class="num">B.3</span> In the natural, you only trust a mirror</h3>
+    <p>You do not <strong>go out</strong> into the street:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>"feeling" that you look good,</li>
+        <li>"feeling" that your face is clean,</li>
+        <li>"feeling" that your hair is well combed,</li>
+        <li>"feeling" that your clothes look good.</li>
+      </ul>
+    </div>
+    <p>You need a <strong>mirror</strong> to:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li><strong>trust</strong> what you see,</li>
+        <li><strong>look</strong> at how you appear,</li>
+        <li>fix whatever you need to <strong>fix</strong>,</li>
+        <li>and then <strong>go out</strong>.</li>
+      </ul>
+    </div>
+    <p>You have <strong>never seen</strong> your <strong>face</strong> directly: you have seen it only through a mirror. To <strong>look at</strong> your <strong>spirit</strong> you also need to look at yourself in a <strong>mirror</strong>, but a completely <strong>different</strong> mirror.</p>
+
+    <!-- ===================== PART C ===================== -->
+    <h2 class="parte" id="parte-c"><span class="letra">C</span> Two completely different mirrors</h2>
+    <hr class="regla">
+
+    <h3 class="seccion" id="c1"><span class="num">C.1</span> The natural mirror and the spiritual mirror</h3>
+    <p>Just as the <strong>natural mirror</strong> works for your <strong>body</strong>, the <strong>Word of God</strong> is the <strong>spiritual mirror</strong> to look at your <strong>spirit</strong>. In the same way:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>The <strong>Word</strong> of God is the <strong>mirror</strong> to see <strong>what</strong> your spirit <strong>is like</strong>.</li>
+        <li>You can <strong>discover</strong> your <strong>spirit</strong> only through this <strong>mirror</strong>.</li>
+        <li>In the <strong>Word</strong> you can discover your <strong>new identity</strong>.</li>
+        <li>It describes <strong>who you really are</strong>.</li>
+        <li>It is the <strong>perfect reflection</strong> of <strong>spiritual truth</strong>.</li>
+        <li>The <strong>life</strong> and <strong>power</strong> of God are already placed in you; they only need to begin to flow toward your soul and your body.</li>
+      </ul>
+    </div>
+
+    <h3 class="seccion" id="c2"><span class="num">C.2</span> The mirror of the spirit</h3>
+    <p>Where do we get this idea of the mirror?</p>
+    <div class="biblia">
+      For <em>if</em> anyone is a <em>hearer</em> of the <em>word</em> and not a <em>doer</em>, he is <em>like a man observing his natural face in a mirror</em>; for he <em>observes</em> himself, goes away, and immediately <em>forgets</em> what kind of man he was. But he who <em>looks into the perfect law of liberty</em> and <em>continues</em> in it, and is <em>not</em> a <em>forgetful</em> hearer but a <em>doer</em> of the work, this one <em>will be blessed</em> in what he <em>does</em>.
+      <span class="ref">James 1:23-25</span>
+    </div>
+
+    <h3 class="seccion" id="c3"><span class="num">C.3</span> It's already in your spirit!</h3>
+    <p>The Bible <strong>reveals spiritual reality</strong> to you, in the same way as looking into a spiritual mirror, and by <strong>faith</strong>, <strong>receiving</strong> what is <strong>already</strong> in your <strong>spirit</strong>.</p>
+    <p>By the <strong>revelation</strong> of the <strong>Holy Spirit</strong>, the <strong>Word</strong> is <strong>the only way</strong> to see the <strong>perfect image</strong> of <strong>who you are</strong> in the <strong>spirit</strong>.</p>
+    <div class="biblia">
+      It is the <em>Spirit</em> who <em>gives life</em>; the <em>flesh profits nothing</em>. The <em>words</em> that I speak to you <em>are spirit</em>, and <em>they are life</em>.
+      <span class="ref">John 6:63</span>
+    </div>
+    <!-- ===================== PART D ===================== -->
+    <h2 class="parte" id="parte-d"><span class="letra">D</span> Your spirit is a new creation</h2>
+    <hr class="regla">
+
+    <div class="biblia">
+      Therefore, if anyone is in Christ, he is a <em>new creation</em>; <em>old things have passed away</em> [past tense]; behold, <em>all things</em> have become <em>new</em>. Now all things <em>are of God</em> [all this is a gift from God], who has <em>reconciled us to Himself</em> through Jesus Christ.
+      <span class="ref">2 Corinthians 5:17-18</span>
+    </div>
+
+    <h3 class="seccion" id="d1"><span class="num">D.1</span> What was created new?</h3>
+    <p>When you received Christ:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>Your <strong>body did not</strong> change when you were saved <span class="nota">(lazy, sick, overweight?)</span>.</li>
+        <li>Your <strong>soul did not</strong> change <span class="nota">(sad, depressed, defeated)</span>.</li>
+        <li>If you were depressed before being saved, you may continue depressed immediately afterward.</li>
+      </ul>
+    </div>
+    <p>What was created new? By process of elimination:</p>
+    <div class="caja acento">
+      <ul class="limpia">
+        <li>It was not the <strong>body</strong>.</li>
+        <li>It was not the <strong>soul</strong>.</li>
+        <li>The <strong>only part</strong> of your being left is <strong>your spirit</strong>.</li>
+      </ul>
+    </div>
+
+    <h3 class="seccion" id="d2"><span class="num">D.2</span> Your spirit was created new</h3>
+    <p>There was an <strong>instant</strong> transformation when you <strong>received</strong> Christ.</p>
+    <div class="biblia">
+      And you He <em>made alive</em>… <em>God</em>, who is rich in <em>mercy</em>, because of <em>His great love</em> with which He loved us, even when we were <em>dead</em> in trespasses, <em>made us alive</em> together with <em>Christ</em> (by grace you have been saved), and <em>raised us up</em> together, and <em>made us sit</em> together in the <em>heavenly places</em> in Christ Jesus.
+      <span class="ref">Ephesians 2:1, 4-6 — NKJV</span>
+    </div>
+    <p>The only way the verse above can be true is that a <strong>new creation</strong> took place in your <strong>spirit</strong>.</p>
+    <div class="biblia">
+      [God] has <em>blessed us</em> with every <em>spiritual blessing</em> in the <em>heavenly places</em> in <em>Christ</em>.
+      <span class="ref">Ephesians 1:3</span>
+    </div>
+    <p>And the only way we can be <strong>seated</strong> in <strong>heavenly places</strong> is with our spirit.</p>
+    <div class="biblia repetida">
+      <span class="ref">&#10097; "Made us sit together in the heavenly places in Christ Jesus" — see Ephesians 2:6 (above)</span>
+    </div>
+    <p>Upon receiving <strong>Christ</strong>, through <strong>His death and resurrection</strong>, your <strong>old spirit dies</strong> and is <strong>born again</strong>. God gave you a new spirit, identical to the <strong>Spirit of Christ</strong>, and <strong>within</strong> your <strong>new spirit</strong> the <strong>Holy Spirit</strong> dwells <strong>forever</strong>. God <strong>communicates</strong> with you, and you with <strong>Him</strong>, through your <strong>spirit</strong>.</p>
+
+    <h3 class="seccion" id="d3"><span class="num">D.3</span> The "Spirit of Christ" and the "Holy Spirit"</h3>
+    <div class="caja">
+      <span class="titulo-caja">The Spirit of Christ</span>
+      Upon accepting <strong>Jesus as Savior</strong>, your spirit is <strong>born again</strong>, becoming a <strong>new creature</strong>, with a <strong>new nature</strong>: the <strong>nature of Christ</strong>. That is why we have the "<strong>Spirit of Christ</strong>." Your new spirit was created in the <strong>image</strong> of the <strong>Spirit of Christ</strong>.
+    </div>
+    <div class="caja">
+      <span class="titulo-caja">The Holy Spirit</span>
+      He is the <strong>third person</strong> of the <strong>Trinity</strong>, who comes to <strong>dwell in you</strong> and to <strong>empower you</strong>, <strong>guiding you</strong> into all <strong>truth</strong>, <strong>glorifying</strong> Christ, <strong>leading you</strong> into an <strong>intimate relationship</strong> with <strong>Jesus</strong>, to show you <strong>things to come</strong>, enabling you to live a <strong>victorious</strong> Christian life.
+    </div>
+
+    <h4 class="subsec">Our "new spirit" is ONE with the "Spirit of Jesus"</h4>
+    <p>By the <strong>power</strong> of the <strong>Holy Spirit</strong>, a <strong>born-again</strong> person has the <strong>Spirit of Christ</strong> in <strong>him</strong>.</p>
+    <div class="biblia">
+      Now if anyone <em>does not have</em> the <em>Spirit of Christ</em>, he <em>is not His</em>. And if <em>Christ is in you</em>, the <em>body is dead</em> because of <em>sin</em>.
+      <span class="ref">Romans 8:9b-10</span>
+    </div>
+    <p>There is a <strong>spiritual union</strong> between <strong>Christ</strong> and the <strong>believer</strong>, indicating that <strong>both share</strong> the <strong>same spirit</strong>.</p>
+    <div class="biblia">
+      But he who is <em>joined</em> to the <em>Lord</em> is <em>one spirit with Him</em>.
+      <span class="ref">1 Corinthians 6:17</span>
+    </div>
+    <p>The <strong>Spirit of Christ</strong> has come to <strong>live within every</strong> born-again Christian. Your new <strong>spirit</strong> and the <strong>Spirit of Jesus</strong> have <strong>merged</strong>, have become <strong>one</strong>. So you are a <strong>completely new person</strong>. The <strong>identity</strong> and the <strong>holiness</strong> of <strong>your spirit</strong> is <strong>identical</strong> to that of Jesus.</p>
+    <div class="biblia">
+      It is <em>no longer I who live</em>, but <em>Christ lives in me</em>; and the <em>life</em> which <em>I now live in the flesh</em> I live <em>by faith in the Son of God</em>.
+      <span class="ref">Galatians 2:20</span>
+    </div>
+    <div class="biblia">
+      For who has known the <em>mind of the Lord</em> that he may instruct Him? But <em>we</em> have the <em>mind</em> of <em>Christ</em>.
+      <span class="ref">1 Corinthians 2:16</span>
+    </div>
+    <p>The Scriptures say that <strong>your new spirit</strong>, in <strong>this world</strong>, is:</p>
+    <div class="caja acento">
+      <ul class="limpia">
+        <li>as <strong>perfect</strong>,</li>
+        <li>as <strong>mature</strong>,</li>
+        <li>as <strong>complete</strong> as <strong>Jesus is</strong>.</li>
+      </ul>
+    </div>
+    <div class="biblia">
+      Because <em>as He</em> [Jesus] <em>is</em>, <em>so are we</em> in this <em>world</em>.
+      <span class="ref">1 John 4:17</span>
+    </div>
+    <div class="biblia">
+      For by <em>one</em> offering He has <em>perfected forever</em> those who are being sanctified.
+      <span class="ref">Hebrews 10:14</span>
+    </div>
+    <p class="pregunta">Are we like Jesus in this world?</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li><strong>Not</strong> in your <strong>body</strong> (physical actions).</li>
+        <li><strong>Not</strong> in your <strong>soul</strong> (thoughts, intellect, will).</li>
+        <li>In your spirit? <strong>YES!</strong> <span class="nota">(by process of elimination)</span></li>
+      </ul>
+    </div>
+    <p>No believer can claim that in his <strong>flesh</strong> he is like Jesus. But in his <strong>spirit</strong>, <strong>YES!</strong> Your spirit was:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>created anew,</li>
+        <li>completely new in <strong>righteousness</strong> and <strong>holiness</strong>,</li>
+        <li>set apart <span class="nota">(you have access to the Father and to spiritual truths)</span>.</li>
+      </ul>
+    </div>
+    <div class="biblia">
+      You have come to Mount Zion… to the general assembly and church of the firstborn who are <em>registered</em> in <em>heaven</em>, to God the Judge of all, to the <em>spirits</em> of <em>just men</em> made <em>perfect</em>.
+      <span class="ref">Hebrews 12:22-23</span>
+    </div>
+
+    <h3 class="seccion" id="d4"><span class="num">D.4</span> Your new nature</h3>
+    <p>You have a <strong>new nature</strong> created by God; not from your parents, not from Adam, but <strong>identical</strong> to the <strong>nature of Christ</strong>.</p>
+    <div class="biblia">
+      Be <em>renewed</em> in the spirit of your <em>mind</em>, and <em>put on</em> the <em>new man</em> [new spiritual nature], which was <em>created</em> according to <em>God</em>, in true <em>righteousness</em> and <em>holiness</em>.
+      <span class="ref">Ephesians 4:23-24</span>
+    </div>
+    <h4 class="subsec">God sent the Holy Spirit, who dwells in us</h4>
+    <div class="biblia">
+      Or do you not know that your <em>body</em> is the temple of the <em>Holy Spirit</em> who is in you, whom you have from God, and you are not your own?
+      <span class="ref">1 Corinthians 6:19</span>
+    </div>
+    <div class="biblia">
+      By this we know that we <em>abide</em> in <em>Him</em>, and <em>He in us</em>, because He <em>has given us</em> of <em>His Spirit</em>.
+      <span class="ref">1 John 4:13</span>
+    </div>
+    <div class="biblia">
+      And because you are <em>sons</em>, God has sent forth <em>the Spirit of His Son into your hearts</em>, crying out, "Abba, Father!"
+      <span class="ref">Galatians 4:6</span>
+    </div>
+    <div class="caja acento">
+      <span class="titulo-caja">Your new spirit CANNOT sin</span>
+      …because it was redeemed and sealed with the Holy Spirit.
+    </div>
+    <div class="biblia">
+      In Him you also trusted, <em>after you heard the word of truth</em>, the <em>gospel</em> of your <em>salvation</em>; in whom also, having <em>believed</em>, you were <em>sealed with the Holy Spirit of promise</em>, <em>who is the guarantee of our inheritance until the redemption</em> of the purchased possession, to the praise of His glory.
+      <span class="ref">Ephesians 1:13-14</span>
+    </div>
+    <div class="biblia">
+      Whoever has been <em>born of God</em> <em>does not</em> sin, for His <em>seed remains</em> in him; and he <em>cannot sin</em>, because he has been <em>born of God</em>.
+      <span class="ref">1 John 3:9</span>
+    </div>
+
+    <h3 class="seccion" id="d5"><span class="num">D.5</span> What part of you died?</h3>
+    <div class="caja acento">
+      <span class="titulo-caja">Your old spirit… no longer exists!</span>
+    </div>
+    <div class="biblia">
+      Knowing this, that our <em>old man was crucified with Him</em>, that the <em>body of sin</em> might be <em>done away with</em>, that we should <em>no longer be slaves of sin</em>.
+      <span class="ref">Romans 6:6</span>
+    </div>
+    <div class="biblia">
+      How shall <em>we who died to sin</em> live any longer <em>in it</em> (in sin)?
+      <span class="ref">Romans 6:2</span>
+    </div>
+    <p>There was a <strong>real death</strong> in you <span class="nota">(your old spirit died, your old man)</span>.</p>
+    <div class="biblia">
+      I have been <em>crucified</em> with Christ; it is <em>no longer I who live</em>, but <em>Christ lives in me</em>; and the <em>life</em> which <em>I now live in the flesh</em> I live <em>by faith in the Son of God</em>, who <em>loved</em> me and gave Himself <em>for me</em>.
+      <span class="ref">Galatians 2:20</span>
+    </div>
+    <p>We died with Christ and rose again through baptism.</p>
+    <div class="biblia">
+      Therefore we were <em>buried with Him</em> through <em>baptism</em> into <em>death</em>, that just as <em>Christ was raised</em> from the <em>dead</em> by the glory of the Father, even so <em>we</em> also should walk in <em>newness of life</em>.
+      <span class="ref">Romans 6:4</span>
+    </div>
+    <div class="biblia">
+      But <em>you are not in the flesh</em> (soul and body) <em>but in the Spirit</em>, if indeed the <em>Spirit of God dwells in you</em>. Now if anyone <em>does not have</em> the <em>Spirit of Christ, he is not His</em>. And <em>if Christ is in you</em>, the <em>body is dead</em> because of sin, but the <em>Spirit is life</em> because of <em>righteousness</em>.
+      <span class="ref">Romans 8:9-10</span>
+    </div>
+    <div class="caja">
+      <p class="pregunta">How can we worship God? How can God have fellowship with an unholy man? What if we still do not reach God's standards to worship Him?</p>
+      <p>If we think deeply about it, we could not come near to God, unless we worship Him in spirit and in truth.</p>
+    </div>
+    <div class="biblia">
+      <em>God is Spirit</em>, and those who worship Him <em>must</em> worship <em>in spirit and truth</em>.
+      <span class="ref">John 4:24</span>
+    </div>
+    <div class="biblia">
+      Watch and pray, lest you enter into temptation. The <em>spirit</em> indeed <em>is willing</em>, but the <em>flesh</em> is <em>weak</em>.
+      <span class="ref">Matthew 26:41</span>
+    </div>
+
+    <!-- ===================== PART E ===================== -->
+    <h2 class="parte" id="parte-e"><span class="letra">E</span> Righteousness and no condemnation</h2>
+    <hr class="regla">
+
+    <h3 class="seccion" id="e1"><span class="num">E.1</span> Jesus put His righteousness in us</h3>
+    <p>Because you put your <strong>faith</strong> in Jesus:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>you received a <strong>new spirit</strong>,</li>
+        <li>becoming a <strong>completely new</strong> creature.</li>
+      </ul>
+    </div>
+    <p><strong>Your spirit</strong> is as <strong>righteous</strong>, <strong>holy</strong>, and <strong>pure</strong> as Jesus. It is <strong>His righteousness</strong> that was <strong>given</strong> to you <span class="nota">(it did not come from you)</span>.</p>
+    <div class="biblia">
+      But of Him you are in Christ Jesus, who <em>became for us</em> from God <em>wisdom and righteousness and sanctification</em> and <em>redemption</em>.
+      <span class="ref">1 Corinthians 1:30</span>
+    </div>
+    <div class="biblia repetida">
+      <span class="ref">&#10097; "Our old man was crucified with Him, that the body of sin might be done away with…" — see Romans 6:6 (Part D.5)</span>
+    </div>
+
+    <h3 class="seccion" id="e2"><span class="num">E.2</span> There is no condemnation from God</h3>
+    <p>All punishment fell upon Christ on the cross.</p>
+    <div class="biblia">
+      There is therefore now <em>no condemnation</em> to those who are <em>in Christ Jesus</em>, who <em>do not walk</em> according to the <em>flesh</em>, but according to the <em>Spirit</em>.
+      <span class="ref">Romans 8:1</span>
+    </div>
+    <div class="biblia">
+      <em>Blessed</em> are those whose <em>lawless deeds</em> are <em>forgiven</em>, and whose <em>sins</em> are <em>covered</em>. <em>Blessed</em> is the man to whom the <em>Lord shall not impute</em> <em>sin</em>.
+      <span class="ref">Romans 4:7-8</span>
+    </div>
+    <div class="biblia">
+      And He Himself is the <em>propitiation</em> for our <em>sins</em>, and not for ours only but also for the whole <em>world</em>.
+      <span class="ref">1 John 2:2</span>
+    </div>
+    <div class="biblia">
+      But God demonstrates His own love toward us, in that while we were still <em>sinners</em>, <em>Christ died</em> for <em>us</em>. Much more then, having now been <em>justified</em> by His blood, we shall be <em>saved</em> from <em>wrath</em> through Him.
+      <span class="ref">Romans 5:8-9</span>
+    </div>
+    <div class="biblia">
+      Christ was offered <em>once</em> to <em>bear</em> the <em>sins</em> of <em>many</em>.
+      <span class="ref">Hebrews 9:28</span>
+    </div>
+    <p>Jesus <strong>not only</strong> <strong>freed</strong> you from <strong>sin</strong> and from your <strong>sins</strong> up to the moment of your salvation, but freed you from all your sins: <strong>past</strong>, <strong>present</strong>, and <strong>future</strong>.</p>
+    <p>Otherwise, from the moment of your salvation onward, it would be your own responsibility to free yourself from condemnation —by your <strong>own works</strong>— or to keep your salvation.</p>
+    <div class="biblia">
+      For he who has <em>entered</em> His <em>rest</em> has himself also <em>ceased</em> from his <em>works</em> as <em>God</em> did from <em>His</em>.
+      <span class="ref">Hebrews 4:10</span>
+    </div>
+    <div class="biblia">
+      Who gave Himself for <em>our sins</em>, that He might <em>deliver us</em> from this <em>present evil age</em>, according to the will of our God and Father.
+      <span class="ref">Galatians 1:4</span>
+    </div>
+
+    <h3 class="seccion" id="e3"><span class="num">E.3</span> If the believer sins, condemnation comes from other sources</h3>
+    <p>If the believer sins, he sins in the flesh; but the flesh was already condemned and died together with Christ, paying for the condemnation of sin.</p>
+    <p>If the <strong>believer sins</strong>, he sins in the flesh; <strong>God</strong> no longer <strong>condemns</strong> us, for Christ took the blame, the condemnation, and died. So the <strong>condemnation will come</strong> from <strong>other sources</strong>, but it does not come from God.</p>
+    <p>We died and were raised together with Christ Jesus. Therefore, the <strong>penalty paid</strong>, the accused can <strong>no longer be condemned</strong> again.</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>Whoever <strong>breaks the laws</strong> of the world will be condemned by the <strong>law of the authorities</strong>.</li>
+        <li>Christians who <strong>walk "according to" the flesh</strong> can be condemned by their own consciences, by the accusations of the devil, and by the consequences of sin.</li>
+        <li>But there is <strong>no condemnation</strong> from <strong>God</strong>.</li>
+      </ul>
+    </div>
+    <div class="biblia">
+      For the eyes of the Lord are on the righteous, and His ears are open to their prayers; but the face of the Lord is against those who do evil. And <em>who</em> is he who will <em>harm you</em> if you become <em>followers</em> of what is <em>good</em>?
+      <span class="ref">1 Peter 3:12-13</span>
+    </div>
+    <p>Although the Bible does contemplate unjust persecution:</p>
+    <div class="biblia">
+      But even if you should suffer for righteousness' sake, you are blessed. And do not be afraid of <em>their threats</em>, nor be troubled, but sanctify the Lord God in your hearts, and always be ready to <em>give a defense</em> to everyone who asks you a reason for the hope that is in you, with meekness and fear.
+      <span class="ref">1 Peter 3:14-15</span>
+    </div>
+    <div class="biblia">
+      For it is better, if it is the will of God, to suffer for doing good than for doing evil.
+      <span class="ref">1 Peter 3:17</span>
+    </div>
+
+    <h3 class="seccion" id="e4"><span class="num">E.4</span> The balance of the heart</h3>
+    <p>God is <strong>not</strong> the one who <strong>changes</strong> His <strong>heart</strong> toward <strong>me</strong>; rather, it is <strong>sin</strong> that <strong>hardens</strong> my heart <strong>toward God</strong>.</p>
+    <div class="biblia">
+      Beware, brethren, lest there be in any of you an <em>evil heart</em> of <em>unbelief</em> in <em>departing</em> from the living <em>God</em>… lest any of you be <em>hardened</em> through the <em>deceitfulness of sin</em>.
+      <span class="ref">Hebrews 3:12-13</span>
+    </div>
+    <div class="caja acento">
+      <span class="titulo-caja">There is a balance between…</span>
+      <ul class="limpia">
+        <li><strong>(a)</strong> God's unconditional love, which through the sacrifice of Jesus does not condemn us;</li>
+        <li><strong>(b)</strong> but a heart hardened toward God, and toward the things of God, affects my sensitivity and my relationship "toward" God, and my ability to receive what God has already given me.</li>
+      </ul>
+    </div>
+
+    <h3 class="seccion" id="e5"><span class="num">E.5</span> Does this give us a right to sin?</h3>
+    <div class="biblia">
+      What then? Shall we <em>sin</em> because we are <em>not under</em> the <em>law</em> but under <em>grace</em>? Certainly not!
+      <span class="ref">Romans 6:15</span>
+    </div>
+    <div class="biblia">
+      And having been <em>set free</em> from <em>sin</em>, you became <em>slaves</em> of <em>righteousness</em>.
+      <span class="ref">Romans 6:18</span>
+    </div>
+    <!-- ===================== PART F ===================== -->
+    <h2 class="parte" id="parte-f"><span class="letra">F</span> Consequences of not understanding this truth</h2>
+    <hr class="regla">
+    <p class="nota">…about "spirit, soul and body."</p>
+
+    <h3 class="seccion" id="f1"><span class="num">F.1</span> Symptoms and frustrations in the Christian life</h3>
+    <div class="caja">
+      <ul class="limpia">
+        <li>It can bring <strong>frustration</strong> and thoughts of <strong>condemnation</strong>.</li>
+        <li>It can create a great <strong>problem in your Christian life</strong>.</li>
+      </ul>
+    </div>
+    <p class="pregunta">Have you felt any of this?</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>Do you <strong>see no</strong> change in your <strong>old habits</strong>?</li>
+        <li>Are you stuck in your <strong>past</strong> and <strong>your failures</strong>?</li>
+        <li>A <strong>lack of revelation</strong> of the Word? Is it hard for you to believe the Word?</li>
+        <li>Do you feel <strong>condemned</strong> by what you <strong>did</strong>, <strong>do</strong>, or <strong>will do</strong>?</li>
+        <li>Are you <strong>dominated</strong> by the <strong>weaknesses</strong> of the flesh, instead of enjoying <strong>your new life</strong> and the <strong>blessings of God</strong>?</li>
+        <li>Do God's <strong>blessings</strong> not <strong>flow</strong> in your life?</li>
+        <li>Are you praying, reading the Word, and listening to sermons <strong>without</strong> a <strong>real change</strong>?</li>
+      </ul>
+    </div>
+
+    <h3 class="seccion" id="f2"><span class="num">F.2</span> What this prevents</h3>
+    <p>This will prevent:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>you from receiving the <strong>life</strong> that God <strong>already placed</strong> in your spirit,</li>
+        <li>the <strong>life and power</strong> from <strong>flowing</strong> from your <strong>spirit</strong> toward your <strong>soul</strong> and your <strong>body</strong>,</li>
+        <li>you from having <strong>fellowship</strong> with the <strong>Holy Spirit</strong>,</li>
+        <li>you from being <strong>transformed</strong>, because your flesh (soul and body) remains the same.</li>
+      </ul>
+    </div>
+    <p>Then <strong>confusion</strong>, <strong>frustration</strong>, and <strong>unbelief</strong> come to make you <strong>give up</strong> or be <strong>discouraged</strong> from trying to <strong>live</strong> and <strong>enjoy</strong> a <strong>Christian life</strong>.</p>
+
+    <h3 class="seccion" id="f3"><span class="num">F.3</span> Faith and unbelief at the same time</h3>
+    <p>Look at what Paul says regarding your flesh and your spirit.</p>
+    <div class="biblia">
+      I want to do what is <em>good</em> (spirit), but I <em>don't</em>. I <em>don't want</em> to do what is <em>wrong</em>, but I do it anyway (flesh). But if I do what I <em>don't want</em> to do, I am <em>not really the one doing wrong</em>; it is <em>sin living in me</em> that does it (flesh). I have discovered this principle of life—that when I <em>want to do what is right</em>, I inevitably <em>do what is wrong</em>. I love God's law with all my <em>heart</em> (spirit). But there is another power within me that is at war with my <em>mind</em>. This power makes me a <em>slave to the sin</em> that is still within me (flesh). Oh, what a <em>miserable</em> person I am! <em>Who</em> will <em>free</em> me from this life that is <em>dominated by sin and death</em>? Thank God! The answer is in Jesus Christ our Lord. So you see how it is: In my <em>mind</em> I really want to obey <em>God's law</em>, but because of my <em>sinful nature</em> I am a <em>slave to sin</em>.
+      <span class="ref">Romans 7:19-25 — NLT</span>
+    </div>
+    <p>For this reason we can have <strong>faith</strong> <span class="nota">(in the spirit — Galatians 5:22)</span> and <strong>unbelief</strong> <span class="nota">(in the intellect)</span>, <strong>at the same time</strong>.</p>
+    <div class="biblia">
+      Jesus said to him, <em>"If you can believe</em>, all things are <em>possible</em> to him who believes." Immediately the father of the child cried out and said with tears, "Lord, I <em>believe</em>; <em>help</em> my <em>unbelief</em>!"
+      <span class="ref">Mark 9:23-24</span>
+    </div>
+
+    <!-- ===================== PART G ===================== -->
+    <h2 class="parte" id="parte-g"><span class="letra">G</span> How to receive what is already in your spirit</h2>
+    <hr class="regla">
+
+    <h3 class="seccion" id="g1"><span class="num">G.1</span> Bring the soul into agreement with the spirit</h3>
+    <div class="biblia">
+      For though we <em>walk</em> in the <em>flesh</em>, we do <em>not war</em> according to the <em>flesh</em>. For the <em>weapons</em> of our warfare <em>are not carnal</em> but <em>mighty</em> in <em>God</em> for <em>pulling down strongholds</em>, <em>casting down arguments</em> and every high thing that <em>exalts itself against</em> the <em>knowledge of God</em>, bringing every <em>thought</em> into <em>captivity to the obedience of Christ</em>, and being <em>ready</em> to <em>punish</em> all <em>disobedience</em> when your <em>obedience</em> is <em>fulfilled</em>.
+      <span class="ref">2 Corinthians 10:3-6</span>
+    </div>
+    <p>Bring your <strong>soul</strong> into <strong>agreement</strong> with what is <strong>already</strong> in your <strong>spirit</strong>; then you will obtain the <strong>physical benefit</strong> in your <strong>soul</strong> and <strong>body</strong>.</p>
+    <div class="biblia">
+      [God] has <em>blessed us with every spiritual blessing</em> in the heavenly places in Christ.
+      <span class="ref">Ephesians 1:3</span>
+    </div>
+    <p>Your <strong>soul</strong> must <strong>allow</strong> your <strong>spirit to flow</strong> toward <strong>it</strong> and toward your <strong>body</strong>, and so <strong>receive</strong> the <strong>power</strong> and life of <strong>God</strong> and the <strong>spiritual blessings</strong> He already <strong>deposited</strong> in you.</p>
+    <div class="biblia">
+      <em>Let the Spirit renew</em> your <em>thoughts</em> and <em>attitudes</em>. <em>Put on</em> your <em>new nature</em>, created to be <em>like God</em> — truly <em>righteous</em> and <em>holy</em>.
+      <span class="ref">Ephesians 4:23-24 — NLT</span>
+    </div>
+
+    <h3 class="seccion" id="g2"><span class="num">G.2</span> Your soul has a valve</h3>
+    <p>That is the <strong>function</strong> of your <strong>natural mind</strong> <span class="nota">(your mental-emotional part)</span>: to be transformed, allowing the life and power of God to flow from your spirit toward your soul and your body.</p>
+    <div class="biblia">
+      Beloved, I pray that you may <em>prosper</em> in <em>all things</em> and be in <em>health</em>, just as your <em>soul prospers</em>.
+      <span class="ref">3 John 1:2</span>
+    </div>
+    <p>If your mind, which is a <strong>valve</strong>, is <strong>CLOSED</strong>:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>it does not <strong>embrace</strong> this <strong>truth</strong> to renew your mind,</li>
+        <li>you do not obtain what you see in the <strong>spiritual mirror</strong> of God's Word,</li>
+        <li>then your <strong>physical mirror</strong> will be your reality (5 senses), instead of God's Word (the spiritual mirror),</li>
+        <li>then the resurrection life in your spirit is completely blocked.</li>
+      </ul>
+    </div>
+    <p>The <strong>result</strong> is that in your mind you conclude:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>I feel sick,</li>
+        <li>my body hurts,</li>
+        <li>I am dying,</li>
+        <li>I am depressed,</li>
+        <li>I am afraid,</li>
+        <li>your medical history dominates you,</li>
+        <li>you will not receive a single drop of <strong>God's life-giving power</strong>,</li>
+        <li>then you can live your life sick and die sick, even while having the <strong>power</strong> and <strong>life</strong> of God <strong>within you</strong>.</li>
+      </ul>
+    </div>
+    <p>You can come to have <strong>depression</strong>, <strong>anger</strong>, <strong>bitterness</strong>, and <strong>fear</strong>, while all the time <strong>in your spirit</strong> you have <strong>love</strong>, <strong>joy</strong>, and <strong>peace</strong>…</p>
+    <div class="biblia">
+      But the <em>fruit of the Spirit</em> is <em>love, joy, peace, forbearance, kindness, goodness, faithfulness, gentleness and self-control</em>. Against such things there is no law.
+      <span class="ref">Galatians 5:22-23 — NIV</span>
+    </div>
+    <p>The Holy Spirit who dwells in your spirit produces <strong>fruit</strong> <span class="nota">(fruit in the singular: it produces all 9 at once)</span>. By <strong>ourselves</strong> we can <strong>produce nothing</strong>.</p>
+    <div class="biblia">
+      He who <em>abides</em> in <em>Me</em>, and <em>I</em> in <em>him</em>, bears much <em>fruit</em>; for <em>without</em> Me you can do <em>nothing</em>.
+      <span class="ref">John 15:5</span>
+    </div>
+    <p>By <strong>opening</strong> the eyes of your <strong>understanding</strong>, you will <strong>grow</strong> in the <strong>knowledge</strong> of Him, <strong>understand</strong> the reason for His <strong>calling</strong>, and <strong>receive</strong> the riches of His <strong>inheritance</strong>.</p>
+    <div class="biblia">
+      The God of our Lord Jesus Christ, the Father of glory, may give to you the spirit of <em>wisdom</em> and <em>revelation</em> in the <em>knowledge</em> of <em>Him</em>, the eyes of your <em>understanding</em> being <em>enlightened</em>; that you may <em>know</em> what is the <em>hope</em> of His <em>calling</em>, what are the <em>riches</em> of the <em>glory</em> of His <em>inheritance</em> in the <em>saints</em>.
+      <span class="ref">Ephesians 1:17-18</span>
+    </div>
+    <p>The verse continues, explaining that the same <strong>power</strong> by which God raised Christ Jesus from death is already <strong>available</strong> in <strong>our spirit</strong>, <strong>for us</strong> who believe.</p>
+    <div class="biblia">
+      And what is the exceeding <em>greatness of His power</em> <em>toward us</em> who believe, according to the working of His <em>mighty power</em> which He <em>worked</em> in <em>Christ</em> when He <em>raised Him</em> from the <em>dead</em> and <em>seated Him</em> at His <em>right hand</em> in the <em>heavenly places</em>.
+      <span class="ref">Ephesians 1:19-20</span>
+    </div>
+
+    <h3 class="seccion" id="g3"><span class="num">G.3</span> How do we receive the fruit of the Spirit? Renewing the mind</h3>
+    <p>The rest of your Christian life is about renewing the mind: opening the valve from the spirit toward the soul and body. So, when we do that, our body and soul will experience the benefit.</p>
+    <div class="biblia">
+      <em>Present your bodies</em> a <em>living sacrifice</em>, holy, acceptable to God, which is your reasonable service. And do <em>not be conformed to this world</em>, but be <em>transformed</em> by the <em>renewing of your mind</em> <span class="nota">(opening the "valve")</span>, that you may prove what is that <em>good and acceptable and perfect will of God</em>.
+      <span class="ref">Romans 12:1-2</span>
+    </div>
+
+    <h3 class="seccion" id="g4"><span class="num">G.4</span> "Conformed" to the world or "transformed" by the Word?</h3>
+    <p>The word <strong>CONFORM</strong> <span class="nota">(to mold)</span> means to be <strong>formed or molded</strong> according to the world. You may receive pressure and knowledge from:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>the world,</li>
+        <li>the devil,</li>
+        <li>individuals, teachers, family,</li>
+        <li>groups, news, media, schools,</li>
+        <li>unbelievers,</li>
+        <li>circumstances,</li>
+        <li>erroneous theories of science and false religions,</li>
+        <li>mistaken ideas of culture.</li>
+      </ul>
+    </div>
+    <p>You came into this world <strong>innocent</strong>, but you will <strong>choose</strong> who will <strong>mold</strong> you: the <strong>world</strong> or the <strong>Word of God</strong>.</p>
+    <div class="caja acento">
+      <span class="titulo-caja">TRANSFORM = metamorphosis</span>
+      The word <strong>TRANSFORM</strong> is the word <strong>metamorphosis</strong>: the process by which a small <strong>worm</strong> becomes a <strong>butterfly</strong>.
+    </div>
+    <p>If you desire that kind of <strong>transformation</strong> in your physical and emotional realm —changing from the bitter, wounded, sick, or defeated person into a victorious person— God wants you to be…</p>
+    <div class="biblia">
+      <em>Transformed</em> by the <em>renewing of your mind</em> (by the Word of God).
+      <span class="ref">Romans 12:2</span>
+    </div>
+    <p>The Word of God teaches you:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>all spiritual truth,</li>
+        <li>your new values,</li>
+        <li>your new attitudes,</li>
+        <li>your true identity.</li>
+      </ul>
+    </div>
+    <p>You will move from <strong>CONFORMING</strong> to <strong>TRANSFORMING</strong> into what the <strong>Word of God</strong> says about you; that is, who you really are.</p>
+
+    <h3 class="seccion" id="g5"><span class="num">G.5</span> Digesting the Word of God</h3>
+    <p>The <strong>KNOWLEDGE</strong> of the Word of God is fundamental in this process. But besides knowledge, you must have:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>the <strong>understanding</strong> of it,</li>
+        <li>and its <strong>application</strong>.</li>
+      </ul>
+    </div>
+    <div class="caja acento">
+      <span class="titulo-caja">Knowledge is like bringing food to your mouth <span class="nota">(the first step)</span></span>
+      <ul class="limpia">
+        <li>but you need to <strong>swallow</strong> that food</li>
+        <li>so that your body <strong>digests</strong> it,</li>
+        <li>and so the <strong>nutrients</strong> and <strong>benefits</strong> are <strong>released</strong> throughout your whole <strong>body</strong>.</li>
+      </ul>
+    </div>
+    <p>The <strong>knowledge</strong> of the Word of God is important, but ONLY if you begin to <strong>understand</strong> it, to <strong>study</strong> it, and to <strong>meditate</strong> on it, so that you can <strong>release the life</strong> that is in it.</p>
+    <div class="biblia">
+      You should <em>no longer walk as the rest of the Gentiles walk</em>, in the <em>futility</em> of their <em>mind</em> (soul, flesh), having their <em>understanding darkened</em>, being <em>alienated</em> (excluded) from the <em>life of God</em>, because of the <em>ignorance</em> that is in them, because of the <em>blindness</em> of their heart.
+      <span class="ref">Ephesians 4:17-18</span>
+    </div>
+    <div class="caja">
+      <span class="titulo-caja">Two paths</span>
+      <p>You can choose to <strong>fight the battle yourself</strong>, trying to fight against your <strong>imperfections</strong>, focusing your <strong>mind</strong> on how to <strong>avoid</strong> doing them, and then falling and <strong>repenting</strong> each time you fail, and then <strong>repeating</strong> the <strong>cycle</strong>, to live under <strong>condemnation</strong>.</p>
+      <p>Or instead, focus on <strong>who</strong> you already are in your <strong>spirit</strong> <span class="nota">(identity)</span>: a <strong>child of God</strong>, a <strong>new creature</strong>, <strong>led</strong> by the <strong>Holy Spirit</strong>, so that the <strong>power</strong> and <strong>life</strong> already in you flow toward your <strong>soul</strong> and your <strong>body</strong>, thus living a <strong>victorious</strong> life in Christ Jesus.</p>
+    </div>
+    <p>As you become sensitive to the Spirit, He will guide you in what to do, where to go, when, and how. It is not a continual mental struggle against your own flesh, but a flowing of the <strong>guidance</strong> and <strong>power</strong> that the <strong>Holy Spirit</strong> puts in your spirit.</p>
+    <p>The <strong>results</strong> you will obtain only the <strong>Holy Spirit</strong> knows, but they are always <strong>good</strong>, <strong>perfect</strong>, and <strong>acceptable</strong> <span class="nota">(Romans 12:2)</span>.</p>
+    <p>But if your guide is your <strong>mind</strong>, your <strong>intellect</strong>, and your <strong>emotions</strong>, seeking what is best <strong>by yourself</strong>, or what is most <strong>logical</strong> in your <strong>view</strong>, the result is <strong>death</strong>:</p>
+    <div class="biblia">
+      I am the vine, you are the branches. He who <em>abides</em> in <em>Me</em>, and <em>I</em> in <em>him</em>, bears <em>much fruit</em>; for <em>without</em> Me you can do <em>nothing</em>.
+      <span class="ref">John 15:5</span>
+    </div>
+
+    <h3 class="seccion" id="g6"><span class="num">G.6</span> Think spiritually, not carnally</h3>
+    <p>The Scriptures say we should <strong>NOT walk</strong>:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>like a person who <strong>has no relationship with God</strong>,</li>
+        <li>like a Gentile or an unbeliever.</li>
+      </ul>
+    </div>
+    <div class="biblia">
+      For to be <em>carnally minded</em> is <em>death</em>, but to be <em>spiritually minded</em> is <em>life and peace</em>.
+      <span class="ref">Romans 8:6</span>
+    </div>
+    <p>Carnal does not necessarily mean sin, but all <strong>sin</strong> is <strong>carnal</strong>. Carnal means living from the <strong>5 senses</strong>, dominated by what you can:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>see,</li>
+        <li>hear,</li>
+        <li>smell,</li>
+        <li>taste,</li>
+        <li>feel.</li>
+      </ul>
+    </div>
+    <div class="biblia">
+      For those who <em>live according to the flesh</em> <em>set their minds</em> on the things of the <em>flesh</em>, but those who <em>live according to the Spirit</em>, the <em>things of the Spirit</em>.
+      <span class="ref">Romans 8:5</span>
+    </div>
+    <div class="biblia">
+      For if you <em>live according to the flesh you will die</em>; but if by the <em>Spirit</em> you <em>put to death the deeds of the body</em>, you <em>will live</em>.
+      <span class="ref">Romans 8:13</span>
+    </div>
+    <div class="biblia">
+      Therefore <em>do not let sin reign</em> in your <em>mortal body</em> (flesh), that you should <em>obey</em> it in its <em>lusts</em>.
+      <span class="ref">Romans 6:12</span>
+    </div>
+    <p>You can <strong>perceive</strong> reality <strong>beyond</strong> the <strong>flesh</strong>. Your soul, through <strong>faith</strong>, can <strong>believe</strong> in the <strong>Word of God</strong>. You can <strong>believe</strong> things you <strong>cannot see</strong>.</p>
+    <div class="caja acento">
+      <span class="titulo-caja">Like a mathematical formula</span>
+      <ul class="limpia">
+        <li>spiritual mindset&nbsp;&nbsp;=&nbsp;&nbsp;life + peace</li>
+        <li>carnal mindset&nbsp;&nbsp;=&nbsp;&nbsp;death (not only physical)</li>
+      </ul>
+    </div>
+    <p>Death is the result of sin, which manifests in:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>emotional sadness,</li>
+        <li>loneliness,</li>
+        <li>bitterness,</li>
+        <li>anger,</li>
+        <li>fear,</li>
+        <li>and finally death.</li>
+      </ul>
+    </div>
+    <p>If you walk like an unbeliever (Gentile):</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>then you are NOT receiving spiritual truths in your mind,</li>
+        <li>but will be dominated by the natural.</li>
+      </ul>
+    </div>
+    <div class="biblia">
+      You should <em>no longer walk</em> as the rest of the <em>Gentiles</em>, in the <em>futility</em> of their <em>mind</em>, having their <em>understanding darkened</em>, being <em>alienated</em> (excluded) from the life of God, because of the <em>ignorance</em> that is in them, because of the <em>hardness</em> of their <em>heart</em>.
+      <span class="ref">Ephesians 4:17-18</span>
+    </div>
+    <div class="caja acento">
+      Born-again people <strong>cannot be "in"</strong> the <strong>flesh</strong>, but they <strong>can walk "according to"</strong> the <strong>flesh</strong>.
+    </div>
+
+    <h3 class="seccion" id="g7"><span class="num">G.7</span> Transforming faith</h3>
+    <div class="biblia">
+      That the <em>sharing</em> <span class="nota">(koinōnia: participation, communication, benefit)</span> of your <em>faith</em> may become <em>effective</em> <span class="nota">(to work, be productive, change, transformation)</span> by the <em>acknowledgment</em> <span class="nota">(to understand, digest)</span> of <em>every good thing</em> which <em>is in you</em> (in your spirit) in <em>Christ Jesus</em>.
+      <span class="ref">Philemon 1:6</span>
+    </div>
+    <p>This Scripture does <strong>NOT</strong> say:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>"<strong>by</strong>" gaining more faith,</li>
+        <li>"<strong>by</strong>" going to God to ask for new anointing,</li>
+        <li>"<strong>by</strong>" asking for a double portion,</li>
+        <li>"<strong>by</strong>" obtaining more from God.</li>
+      </ul>
+    </div>
+    <p>God has already given it to you, He has already placed it in your spirit; it says it is already in you: "<strong>is in you</strong>."</p>
+    <p>The <strong>understanding</strong> of "spirit, soul and body":</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li><strong>is not</strong> a matter of a <strong>moment</strong>,</li>
+        <li><strong>nor</strong> is it a <strong>single thing</strong> that will change your life in an instant,</li>
+        <li>but yes, understanding it will <strong>begin</strong> the <strong>process</strong>.</li>
+      </ul>
+    </div>
+    <p>It is such a <strong>radical</strong> thought that:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>it will take you through a <strong>process of transformation</strong>,</li>
+        <li>that will not only <strong>benefit</strong> you, but also other people,</li>
+        <li>it will give you a different attitude,</li>
+        <li>confidence,</li>
+        <li>and the assurance to face problems and overcome them.</li>
+      </ul>
+    </div>
+    <p>And you have the potential to believe it:</p>
+    <div class="biblia">
+      <em>…be transformed</em> by the <em>renewing of your mind</em>, <em>that</em> you may prove what is that <em>good and acceptable and perfect will of God</em>.
+      <span class="ref">Romans 12:1-2</span>
+    </div>
+
+    <!-- ===================== CLOSING ===================== -->
+    <h2 class="parte" id="cierre"><span class="letra">&#10022;</span> A process, not a moment</h2>
+    <hr class="regla">
+    <div class="caja acento">
+      In this way you will begin <strong>to see</strong> the <strong>perfection</strong> that is already in your <strong>spirit</strong> <strong>from the day of your salvation</strong>.
+    </div>
+
+    <div class="pie">&#10086;</div>
+    <p class="cierre">"Now may the God of peace Himself sanctify you completely;<br>and may your whole spirit, soul, and body be preserved blameless…"<br>— 1 Thessalonians 5:23</p>
+
+  </main>
+</div>
+
+<script>
+  const enlaces = [...document.querySelectorAll('nav.indice a')];
+  const secciones = enlaces
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+  const obs = new IntersectionObserver((entradas)=>{
+    entradas.forEach(e=>{
+      if(e.isIntersecting){
+        enlaces.forEach(a=>a.classList.remove('activo'));
+        const activo = document.querySelector('nav.indice a[href="#'+e.target.id+'"]');
+        if(activo) activo.classList.add('activo');
+      }
+    });
+  },{rootMargin:'-15% 0px -75% 0px'});
+  secciones.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
