@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espíritu, Alma y Cuerpo — Estudio Bíblico</title>
+<style>
+  :root{
+    --bg:#f6f9f4;
+    --salvia-1:#eef4ea;
+    --salvia-2:#dfecd8;
+    --salvia-borde:#bcd4b0;
+    --verde-hondo:#3f6b4c;
+    --verde-titulo:#365c41;
+    --oro:#c9a24b;
+    --oro-suave:#e8d6a8;
+    --rosa-bg:#fceef1;
+    --rosa-borde:#eac4d0;
+    --rosa-texto:#824a5e;
+    --rosa-ref:#a3637a;
+    --texto:#2f3a33;
+    --panel:#eef4ea;
+    --panel-borde:#cadec2;
+    --destacado-bg:#fbf6e9;
+    --destacado-borde:#e3cf94;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;
+    font-size:19px;
+    line-height:1.78;
+    color:var(--texto);
+    background:
+      radial-gradient(circle at 12% 8%, #ffffff 0%, transparent 40%),
+      var(--bg);
+  }
+  .contenedor{display:flex;min-height:100vh;}
+
+  /* ---------- ÍNDICE ---------- */
+  nav.indice{
+    width:330px;flex-shrink:0;
+    background:linear-gradient(180deg,#f0f6ec,#e6f0e0);
+    border-right:1px solid var(--panel-borde);
+    padding:34px 22px;
+    position:sticky;top:0;height:100vh;overflow-y:auto;
+    box-shadow:inset -10px 0 20px -18px rgba(63,107,76,.35);
+  }
+  nav.indice::-webkit-scrollbar{width:9px;}
+  nav.indice::-webkit-scrollbar-thumb{background:var(--salvia-borde);border-radius:6px;}
+  nav.indice .marca{
+    text-align:center;margin-bottom:20px;padding-bottom:18px;
+    border-bottom:1px solid var(--salvia-borde);
+  }
+  nav.indice .marca .mini{
+    font-size:11px;letter-spacing:3px;text-transform:uppercase;
+    color:var(--oro);font-family:Georgia,serif;
+  }
+  nav.indice .marca h2{
+    font-size:20px;color:var(--verde-titulo);margin:6px 0 0;font-weight:600;line-height:1.3;
+  }
+  nav.indice a{
+    display:block;color:var(--verde-hondo);text-decoration:none;
+    padding:5px 12px;border-radius:8px;font-size:15px;line-height:1.35;
+    transition:background .25s,color .25s,padding .25s;
+    border-left:3px solid transparent;
+  }
+  nav.indice a.parte{font-weight:600;margin-top:13px;font-size:15.5px;}
+  nav.indice a.sub{padding-left:26px;font-size:14px;color:#5d7d64;}
+  nav.indice a:hover{background:var(--salvia-2);padding-left:16px;}
+  nav.indice a.sub:hover{padding-left:30px;}
+  nav.indice a.activo{
+    background:#fff;border-left:3px solid var(--oro);
+    color:var(--verde-titulo);font-weight:600;
+  }
+
+  /* ---------- CONTENIDO ---------- */
+  main{flex:1;padding:56px 64px 100px;max-width:900px;}
+
+  .portada{
+    text-align:center;position:relative;
+    background:linear-gradient(155deg,#eef5e9 0%,#f7eef1 100%);
+    border-radius:22px;padding:64px 40px 56px;margin-bottom:20px;
+    box-shadow:0 10px 40px -22px rgba(63,107,76,.5);
+    overflow:hidden;
+  }
+  .portada::before{
+    content:"";position:absolute;inset:14px;
+    border:1px solid var(--oro-suave);border-radius:16px;pointer-events:none;
+  }
+  .portada .orn{color:var(--oro);font-size:26px;letter-spacing:8px;}
+  .portada h1{
+    font-size:46px;color:var(--verde-titulo);margin:14px 0 6px;
+    font-weight:600;letter-spacing:.5px;
+  }
+  .portada p.sub{font-size:21px;color:var(--rosa-texto);font-style:italic;margin:0;}
+
+  .divisor{
+    text-align:center;color:var(--oro);font-size:18px;letter-spacing:10px;
+    margin:26px 0 30px;
+  }
+
+  h2.parte{
+    font-size:27px;color:var(--verde-titulo);font-weight:600;
+    margin:56px 0 8px;display:flex;align-items:center;gap:14px;scroll-margin-top:20px;
+  }
+  h2.parte .letra{
+    flex-shrink:0;width:46px;height:46px;border-radius:50%;
+    background:var(--verde-hondo);color:#fff;font-size:20px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 14px -4px rgba(63,107,76,.6);
+  }
+  hr.regla{
+    height:2px;border:0;margin:0 0 26px;
+    background:linear-gradient(90deg,var(--oro) 0%,var(--salvia-borde) 35%,transparent 80%);
+  }
+  h3.seccion{
+    font-size:22px;color:var(--verde-titulo);font-weight:600;
+    margin:40px 0 14px;display:flex;align-items:baseline;gap:10px;scroll-margin-top:20px;
+  }
+  h3.seccion .num{
+    font-size:14px;color:var(--oro);font-weight:700;letter-spacing:1px;
+    border:1px solid var(--oro-suave);border-radius:6px;padding:1px 8px;
+    flex-shrink:0;position:relative;top:-2px;
+  }
+  h4.subsec{
+    font-size:18.5px;color:var(--verde-hondo);font-weight:600;
+    margin:26px 0 10px;font-style:italic;
+  }
+
+  .caja{
+    background:#fbfdf9;border:1px solid var(--salvia-borde);
+    border-radius:14px;padding:18px 24px;margin:22px 0;
+    box-shadow:0 6px 22px -18px rgba(63,107,76,.55);
+  }
+  .caja.acento{
+    background:var(--destacado-bg);border:1px solid var(--destacado-borde);
+  }
+  .caja .titulo-caja{
+    font-weight:600;color:var(--verde-titulo);font-size:18px;margin-bottom:6px;
+    display:block;
+  }
+
+  .biblia{
+    position:relative;background:var(--rosa-bg);
+    border:1px solid var(--rosa-borde);border-radius:14px;
+    padding:20px 26px 18px 32px;margin:24px 0;
+    font-style:italic;color:var(--rosa-texto);
+    box-shadow:0 8px 26px -20px rgba(130,74,94,.6);
+  }
+  .biblia::before{
+    content:"\201C";position:absolute;left:12px;top:6px;
+    font-size:42px;color:var(--rosa-borde);font-family:Georgia,serif;line-height:1;
+  }
+  .biblia .ref{
+    display:block;font-style:normal;font-weight:600;margin-top:10px;
+    font-size:15px;color:var(--rosa-ref);letter-spacing:.3px;
+  }
+  .biblia.repetida{
+    font-style:normal;padding:11px 26px;background:#fbf2f5;
+    color:var(--rosa-ref);box-shadow:none;
+  }
+  .biblia.repetida::before{display:none;}
+  .biblia.repetida .ref{margin-top:0;}
+  .biblia em{font-style:normal;font-weight:600;}
+
+  ul.limpia{margin:14px 0;padding-left:8px;list-style:none;}
+  ul.limpia li{margin:8px 0;padding-left:24px;position:relative;}
+  ul.limpia li::before{
+    content:"";position:absolute;left:4px;top:12px;
+    width:7px;height:7px;border-radius:50%;background:var(--oro);
+  }
+  strong{color:var(--verde-titulo);font-weight:600;}
+  .nota{font-size:15.5px;color:#7a8a7d;font-style:italic;}
+  .pregunta{
+    color:var(--rosa-texto);font-style:italic;font-weight:600;
+  }
+  p{margin:14px 0;}
+  .pie{
+    text-align:center;color:var(--oro);font-size:16px;letter-spacing:8px;
+    margin:60px 0 10px;
+  }
+  .cierre{
+    text-align:center;font-style:italic;color:var(--verde-hondo);
+    font-size:17px;margin-bottom:40px;
+  }
+</style>
+</head>
+<body>
+<div class="contenedor">
+  <nav class="indice">
+    <div class="marca">
+      <div class="mini">Estudio bíblico</div>
+      <h2>Espíritu, Alma y Cuerpo</h2>
+    </div>
+    <a href="#portada" class="parte">Portada</a>
+
+    <a href="#parte-a" class="parte">A · Las tres partes del ser</a>
+    <a href="#a1" class="sub">A.1 El cuerpo</a>
+    <a href="#a2" class="sub">A.2 El alma</a>
+    <a href="#a3" class="sub">A.3 La carne (cuerpo + alma)</a>
+    <a href="#a4" class="sub">A.4 El espíritu</a>
+
+    <a href="#parte-b" class="parte">B · El espíritu y lo natural</a>
+    <a href="#b1" class="sub">B.1 No se percibe por lo natural</a>
+    <a href="#b2" class="sub">B.2 La mente natural no discierne</a>
+    <a href="#b3" class="sub">B.3 Solo confías en un espejo</a>
+
+    <a href="#parte-c" class="parte">C · Dos espejos diferentes</a>
+    <a href="#c1" class="sub">C.1 El espejo natural y el espiritual</a>
+    <a href="#c2" class="sub">C.2 El espejo del espíritu</a>
+    <a href="#c3" class="sub">C.3 ¡Ya está en tu espíritu!</a>
+
+    <a href="#parte-d" class="parte">D · Una nueva creación</a>
+    <a href="#d1" class="sub">D.1 ¿Qué fue creado nuevo?</a>
+    <a href="#d2" class="sub">D.2 Tu espíritu fue creado nuevo</a>
+    <a href="#d3" class="sub">D.3 Espíritu de Cristo y Espíritu Santo</a>
+    <a href="#d4" class="sub">D.4 Tu nueva naturaleza</a>
+    <a href="#d5" class="sub">D.5 ¿Qué parte de ti murió?</a>
+
+    <a href="#parte-e" class="parte">E · Justicia y no condenación</a>
+    <a href="#e1" class="sub">E.1 Jesús puso Su justicia en ti</a>
+    <a href="#e2" class="sub">E.2 No hay condenación de Dios</a>
+    <a href="#e3" class="sub">E.3 Si el creyente peca</a>
+    <a href="#e4" class="sub">E.4 El balance del corazón</a>
+    <a href="#e5" class="sub">E.5 ¿Da derecho a pecar?</a>
+
+    <a href="#parte-f" class="parte">F · Consecuencias de no entenderlo</a>
+    <a href="#f1" class="sub">F.1 Síntomas y frustraciones</a>
+    <a href="#f2" class="sub">F.2 Lo que esto impide</a>
+    <a href="#f3" class="sub">F.3 Fe e incredulidad a la vez</a>
+
+    <a href="#parte-g" class="parte">G · Cómo recibir lo que ya tienes</a>
+    <a href="#g1" class="sub">G.1 Poner el alma de acuerdo</a>
+    <a href="#g2" class="sub">G.2 Tu alma tiene una válvula</a>
+    <a href="#g3" class="sub">G.3 El fruto: renovando la mente</a>
+    <a href="#g4" class="sub">G.4 ¿Conformado o transformado?</a>
+    <a href="#g5" class="sub">G.5 Digiriendo la Palabra</a>
+    <a href="#g6" class="sub">G.6 Piensa espiritualmente</a>
+    <a href="#g7" class="sub">G.7 Fe transformadora</a>
+
+    <a href="#cierre" class="parte">Cierre · Un proceso, no un momento</a>
+  </nav>
+
+  <main>
+    <section class="portada" id="portada">
+      <div class="orn">&#10086;</div>
+      <h1>Espíritu, Alma y Cuerpo</h1>
+      <p class="sub">Nuestro ser está hecho de tres partes</p>
+    </section>
+
+    <div class="divisor">&#10022; &#10022; &#10022;</div>
+
+    <div class="biblia">
+      Y ahora el Dios de paz os santifique por completo; y que <em>todo tu espíritu, alma y cuerpo</em> seamos guardados irreprensibles para la venida de nuestro Señor Jesucristo.
+      <span class="ref">1 Tesalonicenses 5:23 &nbsp;·&nbsp; «todo tu ser» — ISV</span>
+    </div>
+
+    <div class="biblia">
+      Porque la palabra de Dios es <em>viva</em> y <em>eficaz</em>, y más cortante que toda espada de dos filos, penetra hasta partir <em>el alma y el espíritu</em>, y de <em>las coyunturas</em> y los <em>tuétanos</em>, y discierne los <em>pensamientos y las intenciones del corazón</em>.
+      <span class="ref">Hebreos 4:12</span>
+    </div>
+
+    <!-- ===================== PARTE A ===================== -->
+    <h2 class="parte" id="parte-a"><span class="letra">A</span> Las tres partes del ser</h2>
+    <hr class="regla">
+
+    <h3 class="seccion" id="a1"><span class="num">A.1</span> El cuerpo</h3>
+    <p>El cuerpo es muy obvio: basta con mirarse en un <strong>espejo</strong>. Funciona a través de los <strong>cinco sentidos</strong>: vista, oído, olfato, gusto y tacto.</p>
+    <div class="caja">
+      <span class="titulo-caja">En sí es un organismo muy complejo</span>
+      <ul class="limpia">
+        <li>Está controlado <strong>química</strong> y <strong>eléctricamente</strong> por el cerebro.</li>
+        <li>Maneja muchas <strong>funciones</strong> automáticamente.</li>
+        <li>Tiene <strong>reflejos</strong> en respuesta a acciones.</li>
+        <li>Algunas funciones <strong>ya vinieron</strong> con nosotros desde antes de nuestro nacimiento, incorporadas en el cerebro.</li>
+        <li>Otras necesitan un <strong>proceso</strong> de aprendizaje para ser controladas, y luego se graban en el cerebro para funcionar de manera <strong>autónoma</strong>.</li>
+      </ul>
+    </div>
+
+    <h3 class="seccion" id="a2"><span class="num">A.2</span> El alma</h3>
+    <p>No puedes ver el alma, pero puedes tocarla con palabras o imágenes. Cuando me hablas, le hablas a mi alma. Ella es mi:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>mente</li>
+        <li>intelecto</li>
+        <li>voluntad</li>
+        <li>emociones</li>
+        <li>deseos</li>
+        <li>intenciones</li>
+        <li>conciencia</li>
+      </ul>
+    </div>
+    <p>La <strong>conciencia</strong> es parte del alma. Fue dada por Dios a «todos los hombres», para revelar toda impiedad e injusticia.</p>
+    <div class="biblia">
+      Porque la ira de <em>Dios se revela</em> desde el cielo contra toda <em>impiedad e injusticia de los hombres</em> que detienen con injusticia la verdad; porque lo que de Dios se conoce <em>les es manifiesto</em>, pues <em>Dios se lo manifestó</em>.
+      <span class="ref">Romanos 1:18-19</span>
+    </div>
+    <div class="biblia">
+      Pero el Espíritu dice claramente que en los postreros tiempos algunos apostatarán de la fe, escuchando a espíritus engañadores y a doctrinas de demonios; por la hipocresía de mentirosos que, teniendo <em>cauterizada la conciencia</em>.
+      <span class="ref">1 Timoteo 4:1-2</span>
+    </div>
+    <p>El alma también puede ser llamada <strong>personalidad</strong> <span class="nota">(parte mental-emocional)</span>.</p>
+
+    <h3 class="seccion" id="a3"><span class="num">A.3</span> La carne: cuerpo + alma</h3>
+    <p>Podemos llamar al cuerpo y al alma juntos <strong>la carne</strong>.</p>
+
+    <h4 class="subsec">¿Puedo tocar tu carne? ¡Sí!</h4>
+    <div class="caja">
+      <ul class="limpia">
+        <li><strong>Cuerpo:</strong> al pellizcarte. Lo puedes ver en un espejo.</li>
+        <li><strong>Alma:</strong> puedo tocarte con palabras y hacerte feliz, triste, enojado; puedo lastimarte.</li>
+      </ul>
+    </div>
+    <p>Existe una <strong>conexión profunda</strong> entre el <strong>cuerpo</strong> y el <strong>alma</strong>:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>Una <strong>mente enferma</strong> puede enfermar el <strong>cuerpo</strong>.</li>
+        <li>Un <strong>cuerpo enfermo</strong> puede enfermar la mente, las emociones y la voluntad.</li>
+      </ul>
+    </div>
+    <div class="caja acento">
+      <span class="titulo-caja">Conclusión</span>
+      En lo <strong>natural</strong>, tú estás en <strong>contacto</strong> con otras personas solo a través de tu <strong>cuerpo</strong> y tu <strong>alma</strong>. Es como el mundo en general se comunica y vive sus vidas.
+    </div>
+
+    <h3 class="seccion" id="a4"><span class="num">A.4</span> El espíritu</h3>
+    <p>El espíritu es un asunto totalmente diferente. No hay <strong>una conexión directa</strong> entre la <strong>carne y el espíritu</strong>.</p>
+    <div class="biblia">
+      Lo que es nacido de la <em>carne, carne es</em>; y lo que es nacido del <em>Espíritu, espíritu es</em>.
+      <span class="ref">Juan 3:6</span>
+    </div>
+    <p>Jesús enseñó acerca de <strong>dos nacimientos diferentes</strong>.</p>
+    <div class="biblia">
+      El que no <em>naciere</em> de <em>agua</em> y del <em>Espíritu</em>, no puede entrar en el <em>reino de Dios</em>.
+      <span class="ref">Juan 3:5</span>
+    </div>
+    <p>Jesús se refiere a un segundo <strong>nacimiento que NO es físico</strong>, sino <strong>espiritual</strong>.</p>
+
+    <div class="caja">
+      <span class="titulo-caja">Ejemplo 1 · La escalera de tres escalones</span>
+      <p>Imagina una escalera de tres escalones. La mayoría de la gente interactúa entre los escalones <strong>#1 (cuerpo)</strong> y <strong>#2 (alma)</strong>.</p>
+      <p>No trates de hacerles entender las verdades espirituales del escalón <strong>#3</strong>: esa dimensión no existe para ellos. Su espíritu está muerto, separado de Dios, de Su Palabra, del mundo espiritual y de las verdades espirituales.</p>
+      <p>No hay conexión con el Espíritu Santo que revela la verdad, por lo que no pueden percibir la realidad espiritual, a menos que reciban a Cristo.</p>
+    </div>
+
+    <div class="caja">
+      <span class="titulo-caja">Ejemplo 2 · El papel y el cubo</span>
+      <p>Imagina una hoja de papel y un cubo, uno al lado del otro. Un ser que vive dentro del papel solo puede mirar hacia adelante, hacia atrás y hacia ambos lados, pero <strong>no puede mirar hacia arriba</strong>: no existe «arriba» para él.</p>
+      <p>Quien vive dentro del cubo puede hacer lo mismo que el del papel, pero además puede mirar hacia <strong>arriba</strong>.</p>
+    </div>
+
+    <p>Para el creyente nacido de nuevo, el <strong>espíritu</strong> es la parte con la que:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li><strong>Dios</strong> se comunica con él,</li>
+        <li>y a través de la cual fluye la <strong>Vida y el Poder de Dios</strong>.</li>
+      </ul>
+    </div>
+    <div class="biblia">
+      El <em>cuerpo sin espíritu está muerto</em>.
+      <span class="ref">Santiago 2:26</span>
+    </div>
+    <p>De tus tres partes (cuerpo, alma y espíritu), la parte que está <strong>dando vida</strong> dentro de ti es <strong>tu espíritu</strong>.</p>
+
+    <!-- ===================== PARTE B ===================== -->
+    <h2 class="parte" id="parte-b"><span class="letra">B</span> El espíritu y lo natural</h2>
+    <hr class="regla">
+
+    <h3 class="seccion" id="b1"><span class="num">B.1</span> No se percibe por lo natural</h3>
+    <div class="caja">
+      <ul class="limpia">
+        <li>El espíritu <strong>NO</strong> se puede sentir, ver o tocar; únicamente se puede tocar el alma o el cuerpo.</li>
+        <li><strong>No puedes acceder a tu espíritu</strong> desde lo natural.</li>
+        <li>Tu carne <strong>no puede revelarte</strong> nada acerca de tu espíritu.</li>
+      </ul>
+    </div>
+
+    <h3 class="seccion" id="b2"><span class="num">B.2</span> La mente natural no discierne lo espiritual</h3>
+    <p>El mundo <strong>natural</strong> fue <strong>creado</strong> por el mundo <strong>espiritual</strong>. El mundo natural <strong>no</strong> puede <strong>discernir</strong> ni describir algo de lo que no es parte.</p>
+    <div class="caja">
+      <span class="titulo-caja">Ejemplo · La computadora</span>
+      Es como si una computadora intentara descubrir y describir por sí misma quién la creó; discernir al ser humano. Esta información no está dentro de la computadora, a menos que el ser humano se la revele.
+    </div>
+    <p>Las <strong>religiones falsas</strong> del mundo son invenciones del <strong>alma</strong>, en un intento de discernir el mundo espiritual desde el intelecto y las emociones. Muy similar a un computador tratando de describir a su creador.</p>
+    <p>Pero el <strong>alma nunca</strong> podrá <strong>discernir</strong> lo <strong>espiritual</strong>; por lo tanto, son intentos humanos tratando de describir un conocimiento que <strong>no está</strong> dentro de él.</p>
+    <p>El mundo <strong>espiritual</strong> necesita ser <strong>revelado</strong> por el mundo <strong>espiritual</strong>. A pesar de que Dios ha puesto eternidad dentro de nosotros, el conocimiento de lo espiritual no está dentro de nosotros: necesita ser revelado por el Espíritu Santo a través de la Palabra de Dios.</p>
+    <div class="biblia">
+      Él [Dios] ha puesto <em>eternidad</em> en sus <em>corazones</em>, excepto que <em>nadie</em> puede <em>descubrir</em> la obra <em>que Dios hace</em>, desde el principio hasta el fin.
+      <span class="ref">Eclesiastés 3:11</span>
+    </div>
+
+    <h3 class="seccion" id="b3"><span class="num">B.3</span> En lo natural, solo confías en un espejo</h3>
+    <p>Tú no <strong>sales</strong> a la calle:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>«sintiendo» que te ves bien,</li>
+        <li>«sintiendo» que tu cara está limpia,</li>
+        <li>«sintiendo» que estás bien peinado,</li>
+        <li>«sintiendo» que tu ropa se ve bien.</li>
+      </ul>
+    </div>
+    <p>Necesitas un <strong>espejo</strong> para:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li><strong>confiar</strong> en lo que ves,</li>
+        <li><strong>mirar</strong> cómo te ves,</li>
+        <li>arreglar lo que tengas que <strong>arreglar</strong>,</li>
+        <li>y luego <strong>salir</strong>.</li>
+      </ul>
+    </div>
+    <p><strong>Nunca</strong> has <strong>visto</strong> tu <strong>cara</strong> directamente: la has visto únicamente a través de un espejo. Para <strong>mirar</strong> tu <strong>espíritu</strong> también necesitas mirarte en un <strong>espejo</strong>, pero en un espejo completamente <strong>diferente</strong>.</p>
+
+    <!-- ===================== PARTE C ===================== -->
+    <h2 class="parte" id="parte-c"><span class="letra">C</span> Dos espejos completamente diferentes</h2>
+    <hr class="regla">
+
+    <h3 class="seccion" id="c1"><span class="num">C.1</span> El espejo natural y el espejo espiritual</h3>
+    <p>Al igual que ocurre con el <strong>espejo natural</strong> para tu <strong>cuerpo</strong>, la <strong>Palabra de Dios</strong> es el <strong>espejo espiritual</strong> para mirar tu <strong>espíritu</strong>. Del mismo modo:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>La <strong>Palabra</strong> de Dios es el <strong>espejo</strong> para mirar <strong>cómo es</strong> tu espíritu.</li>
+        <li>Puedes <strong>descubrir</strong> tu <strong>espíritu</strong> únicamente a través de este <strong>espejo</strong>.</li>
+        <li>En la <strong>Palabra</strong> puedes descubrir tu <strong>nueva identidad</strong>.</li>
+        <li>Te describe <strong>quién eres</strong> realmente.</li>
+        <li>Es el <strong>reflejo perfecto</strong> de la <strong>verdad espiritual</strong>.</li>
+        <li>La <strong>vida</strong> y el <strong>poder</strong> de Dios ya están puestos en ti; solo necesitan comenzar a fluir hacia tu alma y tu cuerpo.</li>
+      </ul>
+    </div>
+
+    <h3 class="seccion" id="c2"><span class="num">C.2</span> El espejo del espíritu</h3>
+    <p>¿De dónde sacamos esta idea del espejo?</p>
+    <div class="biblia">
+      Porque <em>si</em> alguno es <em>oidor</em> de la <em>palabra</em>, y no un <em>hacedor</em>, es <em>como un hombre que observa su rostro natural en un espejo</em>; porque se <em>observa</em> a sí mismo, se va, e inmediatamente <em>olvida</em> qué clase de hombre era. Pero el que <em>mira atentamente en la ley perfecta, la de la libertad</em>, y <em>continúa</em> en ello, y <em>no es</em> un oyente <em>olvidadizo</em> sino un <em>hacedor</em> de la obra, este <em>será bienaventurado</em> en lo que <em>hace</em>.
+      <span class="ref">Santiago 1:23-25</span>
+    </div>
+
+    <h3 class="seccion" id="c3"><span class="num">C.3</span> ¡Ya está en tu espíritu!</h3>
+    <p>La Biblia te <strong>revela la realidad espiritual</strong>, de la misma manera que mirarse en un espejo espiritual, y por la <strong>fe</strong>, <strong>recibir</strong> lo que <strong>ya está</strong> en tu <strong>espíritu</strong>.</p>
+    <p>Por la <strong>revelación</strong> del <strong>Espíritu Santo</strong>, la <strong>Palabra</strong> es <strong>la única manera</strong> de ver la <strong>perfecta imagen</strong> de <strong>quién eres</strong> en el <strong>espíritu</strong>.</p>
+    <div class="biblia">
+      Es el <em>Espíritu</em> quien <em>da vida</em>; la <em>carne para nada aprovecha</em>. Las <em>palabras</em> que yo os hablo <em>son espíritu</em>, y <em>son vida</em>.
+      <span class="ref">Juan 6:63</span>
+    </div>
+    <!-- ===================== PARTE D ===================== -->
+    <h2 class="parte" id="parte-d"><span class="letra">D</span> Tu espíritu es una nueva creación</h2>
+    <hr class="regla">
+
+    <div class="biblia">
+      Por tanto, si alguno está en Cristo, él es una <em>nueva creación</em>; <em>las cosas viejas pasaron</em> [tiempo pasado]; he aquí <em>todas</em> son hechas <em>nuevas</em>. Ahora todas las cosas <em>son de Dios</em> [Todo esto es un regalo de Dios — NTV], quien <em>nos reconcilió consigo mismo</em> por medio de Jesucristo.
+      <span class="ref">2 Corintios 5:17-18</span>
+    </div>
+
+    <h3 class="seccion" id="d1"><span class="num">D.1</span> ¿Qué fue creado nuevo?</h3>
+    <p>Cuando recibiste a Cristo:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>Tu <strong>cuerpo no</strong> cambió cuando fuiste salvo <span class="nota">(¿perezoso, enfermo, gordo?)</span>.</li>
+        <li>Tu <strong>alma no</strong> cambió <span class="nota">(triste, deprimida, derrotada)</span>.</li>
+        <li>Si estabas deprimido antes de ser salvo, es posible que continúes deprimido inmediatamente después.</li>
+      </ul>
+    </div>
+    <p>¿Qué fue creado nuevo? Por proceso de eliminación:</p>
+    <div class="caja acento">
+      <ul class="limpia">
+        <li>No fue el <strong>cuerpo</strong>.</li>
+        <li>No fue el <strong>alma</strong>.</li>
+        <li>La <strong>única parte</strong> de tu ser que queda es <strong>tu espíritu</strong>.</li>
+      </ul>
+    </div>
+
+    <h3 class="seccion" id="d2"><span class="num">D.2</span> Tu espíritu fue creado nuevo</h3>
+    <p>Hubo una transformación <strong>instantánea</strong> cuando <strong>recibiste</strong> a Cristo.</p>
+    <div class="biblia">
+      Y a ti <em>te dio vida</em>… <em>Dios</em>, que es rico en <em>misericordia</em>, por <em>su gran amor</em> con que nos amó, aun <em>cuando estábamos muertos</em> en delitos, <em>nos dio vida</em> juntamente con <em>Cristo</em> (por gracia sois salvos), y <em>nos resucitó</em> juntos, y <em>nos hizo sentar</em> juntos en los <em>lugares celestiales</em> en Cristo Jesús.
+      <span class="ref">Efesios 2:1, 4-6 — NKJ</span>
+    </div>
+    <p>La única manera en que el versículo anterior puede ser cierto es que ocurrió una <strong>nueva creación</strong> en tu <strong>espíritu</strong>.</p>
+    <div class="biblia">
+      [Dios] nos <em>bendijo</em> con toda <em>bendición espiritual</em> en los <em>lugares celestiales</em> en <em>Cristo</em>.
+      <span class="ref">Efesios 1:3</span>
+    </div>
+    <p>Y la única manera en que podamos estar <strong>sentados</strong> en <strong>lugares celestiales</strong> es con nuestro espíritu.</p>
+    <div class="biblia repetida">
+      <span class="ref">&#10097; «Sentados juntos en los lugares celestiales en Cristo Jesús» — véase Efesios 2:6 (arriba)</span>
+    </div>
+    <p>Al recibir a <strong>Cristo</strong>, a través de <strong>Su muerte y resurrección</strong>, tu <strong>viejo espíritu muere</strong> y <strong>nace de nuevo</strong>. Dios te dio un nuevo espíritu, idéntico al <strong>Espíritu de Cristo</strong>, y <strong>dentro</strong> de tu <strong>nuevo espíritu</strong> mora el <strong>Espíritu Santo</strong> para <strong>siempre</strong>. Dios se <strong>comunica</strong> contigo, y tú con <strong>Él</strong>, a través de tu <strong>espíritu</strong>.</p>
+
+    <h3 class="seccion" id="d3"><span class="num">D.3</span> El «Espíritu de Cristo» y el «Espíritu Santo»</h3>
+    <div class="caja">
+      <span class="titulo-caja">El Espíritu de Cristo</span>
+      Al aceptar a <strong>Jesús como Salvador</strong>, tu espíritu <strong>nace de nuevo</strong>, convirtiéndose en una <strong>nueva criatura</strong>, con una <strong>nueva naturaleza</strong>: la <strong>naturaleza de Cristo</strong>. Por eso tenemos el «<strong>Espíritu de Cristo</strong>». Tu nuevo espíritu fue creado a la <strong>imagen</strong> del <strong>Espíritu de Cristo</strong>.
+    </div>
+    <div class="caja">
+      <span class="titulo-caja">El Espíritu Santo</span>
+      Es la <strong>tercera persona</strong> de la <strong>Trinidad</strong>, que viene a <strong>morar en ti</strong> y a <strong>darte poder</strong>, <strong>guiándote</strong> a toda <strong>la verdad</strong>, <strong>glorificando</strong> a Cristo, <strong>conduciéndote</strong> a una <strong>relación íntima</strong> con <strong>Jesús</strong>, a mostrarte <strong>las cosas que vendrán</strong>, capacitándote para vivir una vida cristiana <strong>victoriosa</strong>.
+    </div>
+
+    <h4 class="subsec">Nuestro «nuevo espíritu» es UNO con el «Espíritu de Jesús»</h4>
+    <p>Por el <strong>poder</strong> del <strong>Espíritu Santo</strong>, una persona <strong>nacida de nuevo</strong> tiene el <strong>Espíritu de Cristo</strong> en <strong>él</strong>.</p>
+    <div class="biblia">
+      Si alguno <em>no tiene</em> el <em>Espíritu de Cristo</em>, <em>no es de Él</em>. Pero <em>si Cristo está en vosotros</em>, el <em>cuerpo</em> en verdad está <em>muerto</em> a causa del <em>pecado</em>.
+      <span class="ref">Romanos 8:9b-10</span>
+    </div>
+    <p>Hay una <strong>unión espiritual</strong> entre <strong>Cristo</strong> y el <strong>creyente</strong>, indicando que <strong>ambos comparten</strong> el <strong>mismo espíritu</strong>.</p>
+    <div class="biblia">
+      Pero la persona que se <em>une</em> al <em>Señor</em> es <em>un solo espíritu con él</em>.
+      <span class="ref">1 Corintios 6:17</span>
+    </div>
+    <p>El <strong>Espíritu de Cristo</strong> ha venido a <strong>vivir dentro de cada</strong> cristiano nacido de nuevo. Tu nuevo <strong>espíritu</strong> y el <strong>Espíritu de Jesús</strong> se han <strong>fusionado</strong>, se han convertido en <strong>uno solo</strong>. Así que eres una <strong>persona totalmente nueva</strong>. La <strong>identidad</strong> y la <strong>santidad</strong> de <strong>tu espíritu</strong> es <strong>idéntica</strong> a la de Jesús.</p>
+    <div class="biblia">
+      Ya <em>no soy yo quien vive</em>, sino que <em>Cristo vive en mí</em>; y <em>la vida</em> que <em>ahora vivo en la carne</em>, la vivo <em>por la fe en el Hijo de Dios</em>.
+      <span class="ref">Gálatas 2:20</span>
+    </div>
+    <div class="biblia">
+      Porque ¿quién conoció la <em>mente del Señor</em>? ¿Quién le instruirá? Mas <em>nosotros</em> tenemos la <em>mente</em> de <em>Cristo</em>.
+      <span class="ref">1 Corintios 2:16</span>
+    </div>
+    <p>Las Escrituras dicen que <strong>tu nuevo espíritu</strong>, en <strong>este mundo</strong>, es:</p>
+    <div class="caja acento">
+      <ul class="limpia">
+        <li>tan <strong>perfecto</strong>,</li>
+        <li>tan <strong>maduro</strong>,</li>
+        <li>tan <strong>completo</strong> como <strong>lo es Jesús</strong>.</li>
+      </ul>
+    </div>
+    <div class="biblia">
+      Porque <em>tal como Él</em> [Jesús] <em>es</em>, <em>así somos nosotros</em> en este <em>mundo</em>.
+      <span class="ref">1 Juan 4:17</span>
+    </div>
+    <div class="biblia">
+      Porque con <em>una</em> sola <em>ofrenda hizo perfectos</em> para <em>siempre</em> a los santificados.
+      <span class="ref">Hebreos 10:14</span>
+    </div>
+    <p class="pregunta">¿Somos como Jesús en este mundo?</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li><strong>No</strong> en tu <strong>cuerpo</strong> (acciones físicas).</li>
+        <li><strong>No</strong> en tu <strong>alma</strong> (pensamientos, intelecto, voluntad).</li>
+        <li>¿En tu espíritu? <strong>¡SÍ!</strong> <span class="nota">(por proceso de eliminación)</span></li>
+      </ul>
+    </div>
+    <p>Ningún creyente puede afirmar que en su <strong>carne</strong> es como Jesús. Pero en su <strong>espíritu</strong>, <strong>¡SÍ!</strong> Tu espíritu fue:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>creado de nuevo,</li>
+        <li>completamente nuevo en <strong>justicia</strong> y <strong>santidad</strong>,</li>
+        <li>separado <span class="nota">(tienes acceso al Padre y a las verdades espirituales)</span>.</li>
+      </ul>
+    </div>
+    <div class="biblia">
+      Os habéis acercado al monte de Sion… a la congregación de los primogénitos que están <em>inscritos</em> en los <em>cielos</em>, a Dios el Juez de todos, a los <em>espíritus</em> de los <em>justos</em> hechos <em>perfectos</em>.
+      <span class="ref">Hebreos 12:22-23</span>
+    </div>
+
+    <h3 class="seccion" id="d4"><span class="num">D.4</span> Tu nueva naturaleza</h3>
+    <p>Tienes una <strong>nueva naturaleza</strong> creada por Dios; no de tus padres, no de Adán, sino <strong>idéntica</strong> a la <strong>naturaleza de Cristo</strong>.</p>
+    <div class="biblia">
+      <em>Renovaos</em> en el espíritu de vuestra <em>mente</em>, y <em>vestíos</em> del <em>nuevo hombre</em> [nueva naturaleza espiritual], <em>creado</em> según <em>Dios</em>, en la <em>justicia</em> y <em>santidad</em> de la verdad.
+      <span class="ref">Efesios 4:23-24</span>
+    </div>
+    <h4 class="subsec">Dios envió al Espíritu Santo, quien mora en nosotros</h4>
+    <div class="biblia">
+      ¿O ignoráis que vuestro <em>cuerpo</em> es templo del <em>Espíritu Santo</em>, el cual está en vosotros, el cual tenéis de Dios, y que no sois vuestros?
+      <span class="ref">1 Corintios 6:19</span>
+    </div>
+    <div class="biblia">
+      En esto conocemos que <em>permanecemos</em> en <em>Él</em> [en Dios], y <em>Él en nosotros</em>, porque <em>nos ha dado</em> de <em>Su Espíritu</em>.
+      <span class="ref">1 Juan 4:13</span>
+    </div>
+    <div class="biblia">
+      Y porque <em>sois hijos</em>, Dios ha enviado <em>el Espíritu de su Hijo a vuestros corazones</em>, clamando: «¡Abba, Padre!».
+      <span class="ref">Gálatas 4:6</span>
+    </div>
+    <div class="caja acento">
+      <span class="titulo-caja">Tu nuevo espíritu NO puede pecar</span>
+      …porque fue redimido y sellado con el Espíritu Santo.
+    </div>
+    <div class="biblia">
+      En él también vosotros confiasteis, <em>después de haber oído la palabra de verdad</em>, el <em>evangelio</em> de vuestra <em>salvación</em>; en quien también, habiendo <em>creído</em>, fuisteis <em>sellados con el Espíritu Santo de la promesa</em>, <em>quien es la garantía de nuestra herencia hasta la redención</em> de la posesión adquirida, para alabanza de su gloria.
+      <span class="ref">Efesios 1:13-14</span>
+    </div>
+    <div class="biblia">
+      Todo aquel que es <em>nacido de Dios</em> <em>no</em> practica el <em>pecado</em>, porque la <em>simiente</em> de <em>Dios permanece</em> en él; y <em>no puede pecar</em>, porque es <em>nacido</em> de <em>Dios</em>.
+      <span class="ref">1 Juan 3:9</span>
+    </div>
+
+    <h3 class="seccion" id="d5"><span class="num">D.5</span> ¿Qué parte de ti murió?</h3>
+    <div class="caja acento">
+      <span class="titulo-caja">¡Tu viejo espíritu… ya no existe!</span>
+    </div>
+    <div class="biblia">
+      Sabiendo esto, que <em>nuestro viejo hombre fue crucificado juntamente con él</em>, para que el <em>cuerpo del pecado</em> fuese <em>destruido</em>, para que <em>ya no seamos esclavos del pecado</em>.
+      <span class="ref">Romanos 6:6</span>
+    </div>
+    <div class="biblia">
+      ¿Cómo <em>nosotros, que morimos al pecado</em>, viviremos aún <em>en él</em> (en el pecado)?
+      <span class="ref">Romanos 6:2</span>
+    </div>
+    <p>Hubo una <strong>muerte real</strong> en ti <span class="nota">(murió tu viejo espíritu, tu viejo hombre)</span>.</p>
+    <div class="biblia">
+      Con Cristo estoy juntamente <em>crucificado</em>; ya <em>no soy yo quien vive</em>, sino que <em>Cristo vive en mí</em>; y <em>la vida</em> que <em>ahora vivo en la carne</em>, la vivo <em>por la fe en el Hijo de Dios</em>, quien me <em>amó</em> y se entregó a sí mismo <em>por mí</em>.
+      <span class="ref">Gálatas 2:20</span>
+    </div>
+    <p>Morimos con Cristo y resucitamos por el bautismo.</p>
+    <div class="biblia">
+      Por eso fuimos <em>sepultados juntamente con él</em> por <em>el bautismo</em> en <em>la muerte</em>, para que así como <em>Cristo resucitó</em> de entre los <em>muertos</em> por la gloria del Padre, así también <em>nosotros</em> andemos en <em>nueva vida</em>.
+      <span class="ref">Romanos 6:4</span>
+    </div>
+    <div class="biblia">
+      Pero <em>vosotros no vivís en la carne</em> (alma y cuerpo) <em>sino en el Espíritu</em>, si en verdad el <em>Espíritu de Dios mora en vosotros</em>. Ahora bien, si alguno <em>no tiene</em> el <em>Espíritu de Cristo, no es de él</em>. Y <em>si Cristo está en vosotros</em>, el <em>cuerpo</em> en verdad está <em>muerto</em> a causa del pecado, pero el <em>Espíritu es vida</em> a causa de la <em>justicia</em>.
+      <span class="ref">Romanos 8:9-10</span>
+    </div>
+    <div class="caja">
+      <p class="pregunta">¿Cómo podemos adorar a Dios? ¿Cómo puede Dios tener comunión con un hombre impío? ¿Qué pasa si todavía no alcanzamos los estándares de Dios para adorarle?</p>
+      <p>Si lo pensamos profundamente, no podríamos acercarnos a Dios, a menos que lo adoremos en espíritu y en verdad.</p>
+    </div>
+    <div class="biblia">
+      <em>Dios es Espíritu</em>, y los que le adoran, <em>es necesario</em> que <em>adoren en espíritu y en verdad</em>.
+      <span class="ref">Juan 4:24</span>
+    </div>
+    <div class="biblia">
+      Velad y orad, para que no entréis en tentación; el <em>espíritu</em> a la verdad <em>está dispuesto</em>, pero la <em>carne</em> es <em>débil</em>.
+      <span class="ref">Mateo 26:41</span>
+    </div>
+
+    <!-- ===================== PARTE E ===================== -->
+    <h2 class="parte" id="parte-e"><span class="letra">E</span> Justicia y no condenación</h2>
+    <hr class="regla">
+
+    <h3 class="seccion" id="e1"><span class="num">E.1</span> Jesús puso Su justicia en nosotros</h3>
+    <p>Porque pusiste tu <strong>fe</strong> en Jesús:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>recibiste un <strong>nuevo espíritu</strong>,</li>
+        <li>convirtiéndote en una criatura <strong>completamente nueva</strong>.</li>
+      </ul>
+    </div>
+    <p><strong>Tu espíritu</strong> es tan <strong>justo</strong>, <strong>santo</strong> y <strong>puro</strong> como Jesús. Es <strong>Su justicia</strong> la que te fue <strong>dada</strong> <span class="nota">(no vino de ti)</span>.</p>
+    <div class="biblia">
+      Mas por él estáis vosotros en Cristo Jesús, el cual <em>nos ha sido hecho</em> por Dios <em>sabiduría, justificación, santificación</em> y <em>redención</em>.
+      <span class="ref">1 Corintios 1:30</span>
+    </div>
+    <div class="biblia repetida">
+      <span class="ref">&#10097; «Nuestro viejo hombre fue crucificado con Él, para que el cuerpo del pecado fuese destruido…» — véase Romanos 6:6 (Parte D.5)</span>
+    </div>
+
+    <h3 class="seccion" id="e2"><span class="num">E.2</span> No hay condenación de parte de Dios</h3>
+    <p>Todo castigo recayó sobre Cristo en la cruz.</p>
+    <div class="biblia">
+      Ahora, pues, <em>ninguna condenación</em> hay para los que <em>están en Cristo Jesús</em>, que <em>no andan</em> conforme a la <em>carne</em>, sino conforme al <em>Espíritu</em>.
+      <span class="ref">Romanos 8:1</span>
+    </div>
+    <div class="biblia">
+      <em>Bienaventurados</em> aquellos cuyas <em>iniquidades</em> son <em>perdonadas</em>, y cuyos <em>pecados</em> son <em>cubiertos</em>. <em>Bienaventurado</em> el varón a quien el <em>Señor no inculpa</em> de <em>pecado</em>.
+      <span class="ref">Romanos 4:7-8</span>
+    </div>
+    <div class="biblia">
+      Y él es la <em>propiciación</em> por nuestros <em>pecados</em>; y no solamente por los nuestros, sino <em>también</em> por los de <em>todo el mundo</em>.
+      <span class="ref">1 Juan 2:2</span>
+    </div>
+    <div class="biblia">
+      Mas Dios muestra su amor para con nosotros, en que <em>siendo</em> aún <em>pecadores</em>, <em>Cristo murió</em> por <em>nosotros</em>. Pues <em>mucho más</em>, estando <em>ya justificados</em> en su sangre, por él seremos <em>salvos</em> de la <em>ira</em>.
+      <span class="ref">Romanos 5:8-9</span>
+    </div>
+    <div class="biblia">
+      Cristo fue ofrecido <em>una sola vez</em> para <em>llevar</em> los <em>pecados</em> de <em>muchos</em>.
+      <span class="ref">Hebreos 9:28</span>
+    </div>
+    <p>Jesús <strong>no solo</strong> te <strong>libró</strong> del <strong>pecado</strong> y de tus <strong>pecados</strong> hasta el momento de tu salvación, sino que te libró de todos tus pecados: <strong>pasados</strong>, <strong>presentes</strong> y <strong>futuros</strong>.</p>
+    <p>De lo contrario, desde el momento de tu salvación en adelante, sería tu propia responsabilidad librarte de la condenación —por tus <strong>propias obras</strong>— o conservar tu salvación.</p>
+    <div class="biblia">
+      Porque el que ha <em>entrado</em> en su <em>reposo</em>, también ha <em>reposado</em> de sus <em>obras</em>, como <em>Dios</em> de las <em>suyas</em>.
+      <span class="ref">Hebreos 4:10</span>
+    </div>
+    <div class="biblia">
+      El cual se dio a sí mismo por <em>nuestros pecados</em> para <em>librarnos</em> del <em>presente siglo malo</em>, conforme a la voluntad de nuestro Dios y Padre.
+      <span class="ref">Gálatas 1:4</span>
+    </div>
+
+    <h3 class="seccion" id="e3"><span class="num">E.3</span> Si el creyente peca, la condenación viene de otras fuentes</h3>
+    <p>Si el creyente peca, peca en la carne; pero la carne ya fue condenada y murió junto con Cristo, pagando por la condena del pecado.</p>
+    <p>Si el <strong>creyente peca</strong>, peca en la carne; ya <strong>Dios</strong> no nos <strong>condena</strong>, pues Cristo recibió la culpa, la condena y murió. Entonces la <strong>condenación vendrá</strong> de <strong>otras fuentes</strong>, pero no viene de Dios.</p>
+    <p>Morimos y fuimos resucitados junto con Cristo Jesús. Por lo tanto, <strong>pagada la condena</strong>, el reo ya <strong>no puede ser condenado</strong> nuevamente.</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>Quien <strong>quebrante las leyes</strong> del mundo será condenado por la <strong>ley de las autoridades</strong>.</li>
+        <li>Cristianos que <strong>caminan «conforme» a la carne</strong> pueden ser condenados por sus propias conciencias, por las acusaciones del diablo, y por las consecuencias del pecado.</li>
+        <li>Pero <strong>no hay condenación</strong> de parte de <strong>Dios</strong>.</li>
+      </ul>
+    </div>
+    <div class="biblia">
+      Porque los ojos del Señor están sobre los justos, y sus oídos atentos a sus oraciones; pero el rostro del Señor está contra aquellos que hacen el mal. ¿Y <em>quién</em> es aquel que os podrá <em>hacer daño</em>, si vosotros <em>seguís</em> el <em>bien</em>?
+      <span class="ref">1 Pedro 3:12-13</span>
+    </div>
+    <p>Aunque la Biblia contempla la persecución injusta:</p>
+    <div class="biblia">
+      Mas también si alguna cosa padecéis por causa de la justicia, bienaventurados sois. Por tanto, no os amedrentéis por <em>temor de ellos</em>, ni os conturbéis, sino santificad a Dios el Señor en vuestros corazones, y estad siempre preparados para <em>presentar defensa</em> con mansedumbre y reverencia ante todo el que os demande razón de la esperanza que hay en vosotros.
+      <span class="ref">1 Pedro 3:14-15</span>
+    </div>
+    <div class="biblia">
+      Porque mejor es que padezcáis haciendo el bien, si la voluntad de Dios así lo quiere, que haciendo el mal.
+      <span class="ref">1 Pedro 3:17</span>
+    </div>
+
+    <h3 class="seccion" id="e4"><span class="num">E.4</span> El balance del corazón</h3>
+    <p>Dios <strong>no</strong> es el que <strong>cambia</strong> su <strong>corazón</strong> hacia <strong>mí</strong>, sino que es el <strong>pecado</strong> el que <strong>endurece</strong> mi corazón <strong>hacia Dios</strong>.</p>
+    <div class="biblia">
+      No haya en ninguno de vosotros <em>corazón malo</em> de <em>incredulidad</em> para <em>apartarse</em> del <em>Dios</em> vivo… para que ninguno de vosotros se <em>endurezca</em> por el <em>engaño del pecado</em>.
+      <span class="ref">Hebreos 3:12-13</span>
+    </div>
+    <div class="caja acento">
+      <span class="titulo-caja">Hay un balance entre…</span>
+      <ul class="limpia">
+        <li><strong>(a)</strong> el amor incondicional de Dios, que por el sacrificio de Jesús no nos condena;</li>
+        <li><strong>(b)</strong> pero un corazón endurecido hacia Dios, y hacia las cosas de Dios, afecta mi sensibilidad y mi relación «hacia» Dios, y para recibir lo que ya Dios me ha dado.</li>
+      </ul>
+    </div>
+
+    <h3 class="seccion" id="e5"><span class="num">E.5</span> ¿Esto nos da derecho a pecar?</h3>
+    <div class="biblia">
+      ¿Qué, pues? ¿<em>Pecaremos</em>, porque <em>no</em> estamos <em>bajo</em> la <em>ley</em>, sino bajo la <em>gracia</em>? En ninguna manera.
+      <span class="ref">Romanos 6:15</span>
+    </div>
+    <div class="biblia">
+      <em>Libertados</em> del <em>pecado</em>, vinisteis a ser <em>siervos</em> de la <em>justicia</em>.
+      <span class="ref">Romanos 6:18</span>
+    </div>
+    <!-- ===================== PARTE F ===================== -->
+    <h2 class="parte" id="parte-f"><span class="letra">F</span> Consecuencias de no entender esta verdad</h2>
+    <hr class="regla">
+    <p class="nota">…sobre «espíritu, alma y cuerpo».</p>
+
+    <h3 class="seccion" id="f1"><span class="num">F.1</span> Síntomas y frustraciones en la vida cristiana</h3>
+    <div class="caja">
+      <ul class="limpia">
+        <li>Puede traer <strong>frustración</strong> y pensamientos de <strong>condenación</strong>.</li>
+        <li>Puede crear un gran <strong>problema en tu vida cristiana</strong>.</li>
+      </ul>
+    </div>
+    <p class="pregunta">¿Has sentido algo de esto?</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>¿No <strong>ves</strong> cambio en tus <strong>viejos hábitos</strong>?</li>
+        <li>¿Estás atrapado en tu <strong>pasado</strong> y <strong>tus fracasos</strong>?</li>
+        <li>¿<strong>Falta de revelación</strong> de la Palabra? ¿Te es difícil creer en la Palabra?</li>
+        <li>¿Te sientes <strong>condenado</strong> por lo que <strong>hiciste</strong>, <strong>haces</strong> o <strong>harás</strong>?</li>
+        <li>¿<strong>Dominado</strong> por <strong>las debilidades</strong> de la carne, en lugar de disfrutar de <strong>tu nueva vida</strong> y las <strong>bendiciones de Dios</strong>?</li>
+        <li>¿Las <strong>bendiciones</strong> de Dios no <strong>fluyen</strong> en tu vida?</li>
+        <li>¿Estás orando, leyendo la Palabra y escuchando las prédicas <strong>sin</strong> un <strong>cambio real</strong>?</li>
+      </ul>
+    </div>
+
+    <h3 class="seccion" id="f2"><span class="num">F.2</span> Lo que esto impide</h3>
+    <p>Esto evitará:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>que recibas la <strong>vida</strong> que Dios <strong>ya puso</strong> en tu espíritu,</li>
+        <li>que <strong>fluya</strong> la <strong>vida y el poder</strong> desde tu <strong>espíritu</strong> hacia tu <strong>alma</strong> y tu <strong>cuerpo</strong>,</li>
+        <li>que tengas <strong>comunión</strong> con el <strong>Espíritu Santo</strong>,</li>
+        <li>que seas <strong>transformado</strong>, porque tu carne (alma y cuerpo) sigue siendo la misma.</li>
+      </ul>
+    </div>
+    <p>Entonces la <strong>confusión</strong>, la <strong>frustración</strong> y la <strong>incredulidad</strong> vienen para hacerte <strong>renunciar</strong> o <strong>desanimar</strong> de intentar <strong>vivir</strong> y <strong>disfrutar</strong> una <strong>vida cristiana</strong>.</p>
+
+    <h3 class="seccion" id="f3"><span class="num">F.3</span> Fe e incredulidad al mismo tiempo</h3>
+    <p>Mira lo que dice Pablo con respecto a tu carne y tu espíritu.</p>
+    <div class="biblia">
+      Quiero hacer lo que es <em>bueno</em> (espíritu), pero <em>no</em> lo hago. <em>No quiero</em> hacer lo que está <em>mal</em>, pero igual lo hago (carne). Ahora bien, si hago lo que <em>no quiero</em> hacer, <em>realmente no soy yo</em> el que actúa mal, sino el <em>pecado que vive en mí</em> (carne). He descubierto el siguiente principio de vida: que cuando <em>quiero hacer lo que es correcto</em>, <em>no puedo evitar hacer lo que está mal</em>. Amo la ley de Dios con todo mi <em>corazón</em> (espíritu), pero hay otro poder dentro de mí que está en guerra con mi <em>mente</em>. Ese poder me esclaviza al <em>pecado</em> que todavía está dentro de mí (carne). ¡Soy un <em>pobre desgraciado</em>! ¿<em>Quién</em> me <em>librará</em> de esta vida <em>dominada por el pecado y la muerte</em>? ¡Gracias a Dios! La respuesta está en Jesucristo nuestro Señor. Así que, en mi <em>mente</em>, de verdad quiero obedecer la <em>ley de Dios</em>, pero a causa de mi <em>naturaleza pecaminosa</em>, soy <em>esclavo del pecado</em>.
+      <span class="ref">Romanos 7:19-25 — NTV</span>
+    </div>
+    <p>Por esta razón podemos tener <strong>fe</strong> <span class="nota">(en el espíritu — Gálatas 5:22)</span> e <strong>incredulidad</strong> <span class="nota">(en el intelecto)</span>, <strong>al mismo tiempo</strong>.</p>
+    <div class="biblia">
+      Jesús le dijo: <em>Si puedes creer</em>, al que cree <em>todo le es posible</em>. Al instante el padre del niño clamó y dijo entre lágrimas: «Señor, <em>creo</em>; <em>ayúdame</em> en mi <em>incredulidad</em>».
+      <span class="ref">Marcos 9:23-24</span>
+    </div>
+
+    <!-- ===================== PARTE G ===================== -->
+    <h2 class="parte" id="parte-g"><span class="letra">G</span> Cómo recibir lo que ya está en tu espíritu</h2>
+    <hr class="regla">
+
+    <h3 class="seccion" id="g1"><span class="num">G.1</span> Poner el alma de acuerdo con el espíritu</h3>
+    <div class="biblia">
+      Aunque <em>andamos</em> en la <em>carne</em>, <em>no militamos</em> según la <em>carne</em>; porque las <em>armas</em> de nuestra milicia <em>no son carnales</em>, sino <em>poderosas</em> en <em>Dios</em> para la <em>destrucción de fortalezas</em>, <em>derribando argumentos</em> y toda altivez que se <em>levanta contra</em> el <em>conocimiento de Dios</em>, y llevando <em>cautivo</em> todo <em>pensamiento</em> a la <em>obediencia a Cristo</em>, y <em>estando prontos</em> para <em>castigar</em> toda <em>desobediencia</em>, cuando vuestra <em>obediencia</em> sea <em>perfecta</em>.
+      <span class="ref">2 Corintios 10:3-6</span>
+    </div>
+    <p>Pon tu <strong>alma</strong> en <strong>acuerdo</strong> con lo que <strong>ya está</strong> en tu <strong>espíritu</strong>; entonces obtendrás el <strong>beneficio</strong> físico en tu <strong>alma</strong> y <strong>cuerpo</strong>.</p>
+    <div class="biblia">
+      [Dios] nos ha <em>bendecido con toda bendición espiritual</em> en los lugares celestiales con Cristo.
+      <span class="ref">Efesios 1:3</span>
+    </div>
+    <p>Tu <strong>alma</strong> debe <strong>permitir</strong> que tu <strong>espíritu fluya</strong> hacia <strong>ella</strong> y hacia tu <strong>cuerpo</strong>, y así <strong>recibir</strong> el <strong>poder</strong> y la vida de <strong>Dios</strong> y las <strong>bendiciones</strong> espirituales que ya <strong>depositó</strong> en ti.</p>
+    <div class="biblia">
+      <em>Deja que el Espíritu renueve</em> tus <em>pensamientos</em> y <em>actitudes</em>. <em>Ponte</em> tu <em>nueva naturaleza</em>, creada para ser <em>como Dios</em> — verdaderamente <em>justo</em> y <em>santo</em>.
+      <span class="ref">Efesios 4:23-24 — NTV</span>
+    </div>
+
+    <h3 class="seccion" id="g2"><span class="num">G.2</span> Tu alma tiene una válvula</h3>
+    <p>Esa es la <strong>función</strong> de tu <strong>mente natural</strong> <span class="nota">(tu parte mental-emocional)</span>: la de ser transformada, permitiendo que la vida y el poder de Dios fluya desde tu espíritu hacia tu alma y tu cuerpo.</p>
+    <div class="biblia">
+      Amado, yo deseo que tú seas <em>prosperado</em> en <em>todas las cosas</em>, y que tengas <em>salud</em>, así como <em>prospera tu alma</em>.
+      <span class="ref">3 Juan 1:2</span>
+    </div>
+    <p>Si tu mente, que es una <strong>válvula</strong>, está <strong>CERRADA</strong>:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>no <strong>abraza</strong> esta <strong>verdad</strong> para renovar tu mente,</li>
+        <li>no obtienes lo que ves en el <strong>espejo espiritual</strong> de la Palabra de Dios,</li>
+        <li>entonces tu <strong>espejo físico</strong> será tu realidad (5 sentidos), en lugar de la Palabra de Dios (espejo espiritual),</li>
+        <li>entonces la vida de resurrección que está en tu espíritu se bloquea por completo.</li>
+      </ul>
+    </div>
+    <p>El <strong>resultado</strong> es que en tu mente concluyes:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>me siento enfermo,</li>
+        <li>me duele el cuerpo,</li>
+        <li>me estoy muriendo,</li>
+        <li>estoy deprimido,</li>
+        <li>tengo miedo,</li>
+        <li>tu historial médico te domina,</li>
+        <li>no recibirás ni una gota del <strong>poder vivificante de Dios</strong>,</li>
+        <li>entonces puedes vivir tu vida enfermo y morir enfermo, incluso teniendo el <strong>poder</strong> y la <strong>vida</strong> de Dios <strong>dentro de ti</strong>.</li>
+      </ul>
+    </div>
+    <p>Puedes llegar a tener <strong>depresión</strong>, <strong>enojo</strong>, <strong>amargura</strong> y <strong>miedo</strong>, mientras que todo el tiempo <strong>en tu espíritu</strong> tienes <strong>amor</strong>, <strong>gozo</strong> y <strong>paz</strong>…</p>
+    <div class="biblia">
+      En cambio, el <em>fruto del Espíritu</em> es <em>amor, alegría, paz, paciencia, amabilidad, bondad, fidelidad, humildad y dominio propio</em>. No hay ley que condene estas cosas.
+      <span class="ref">Gálatas 5:22-23 — NVI</span>
+    </div>
+    <p>El Espíritu Santo que habita en tu espíritu produce <strong>fruto</strong> <span class="nota">(fruto en forma singular: produce los 9, todos a la vez)</span>. Por <strong>nosotros mismos</strong> no podemos <strong>producir nada</strong>.</p>
+    <div class="biblia">
+      El que <em>permanece</em> en <em>mí</em>, y <em>yo</em> en <em>él</em>, este <em>lleva</em> mucho <em>fruto</em>; porque <em>separados</em> de mí <em>nada</em> podéis hacer.
+      <span class="ref">Juan 15:5</span>
+    </div>
+    <p>Al <strong>abrir</strong> los ojos del <strong>entendimiento</strong>, vas a <strong>crecer</strong> en el <strong>conocimiento</strong> de Él, <strong>comprender</strong> el motivo de Su <strong>llamado</strong> y <strong>recibir</strong> las riquezas de su <strong>herencia</strong>.</p>
+    <div class="biblia">
+      El Dios de nuestro Señor Jesucristo, el Padre de gloria, os dé espíritu de <em>sabiduría</em> y de <em>revelación</em> en el mejor <em>conocimiento</em> de <em>él</em>, <em>alumbrando</em> los ojos de vuestro <em>entendimiento</em>, para que <em>sepáis</em> cuál es la <em>esperanza</em> a que él os ha <em>llamado</em>, cuáles las <em>riquezas</em> de la <em>gloria</em> de su <em>herencia</em> en los <em>santos</em>.
+      <span class="ref">Efesios 1:17-18</span>
+    </div>
+    <p>El versículo continúa explicando que el mismo <strong>poder</strong> con que Dios resucitó a Cristo Jesús de la muerte está ya <strong>disponible</strong> en <strong>nuestro espíritu</strong>, <strong>para nosotros</strong> los que creemos.</p>
+    <div class="biblia">
+      Y cuál la supereminente <em>grandeza de su poder</em> <em>para con nosotros</em> los que creemos, según la operación del <em>poder de su fuerza</em>, la cual <em>operó</em> en <em>Cristo</em>, <em>resucitándole</em> de los <em>muertos</em> y <em>sentándole</em> a su <em>diestra</em> en los lugares <em>celestiales</em>.
+      <span class="ref">Efesios 1:19-20</span>
+    </div>
+
+    <h3 class="seccion" id="g3"><span class="num">G.3</span> ¿Cómo recibimos el fruto del Espíritu? Renovando la mente</h3>
+    <p>El resto de tu vida cristiana se trata de renovar la mente: abriendo la válvula del espíritu hacia el alma y el cuerpo. Entonces, cuando hagamos eso, nuestro cuerpo y alma experimentarán el beneficio.</p>
+    <div class="biblia">
+      <em>Presentad vuestros cuerpos</em> como <em>sacrificio vivo</em>, santo, agradable a Dios, que es vuestro culto racional. Y <em>no os conforméis a este mundo</em>, sino <em>transformaos</em> por medio de la <em>renovación de vuestro entendimiento</em> <span class="nota">(abrir la «válvula»)</span>, para que comprobéis cuál sea la <em>buena voluntad de Dios, agradable y perfecta</em>.
+      <span class="ref">Romanos 12:1-2</span>
+    </div>
+
+    <h3 class="seccion" id="g4"><span class="num">G.4</span> ¿«Conformado» al mundo o «transformado» por la Palabra?</h3>
+    <p>La palabra <strong>CONFORMAR</strong> <span class="nota">(moldear)</span> significa ser <strong>formado o moldeado</strong> según el mundo. Es posible que recibas presión y conocimiento de:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>el mundo,</li>
+        <li>el diablo,</li>
+        <li>individuos, maestros, familia,</li>
+        <li>grupos, noticias, medios, escuelas,</li>
+        <li>incrédulos,</li>
+        <li>circunstancias,</li>
+        <li>teorías erróneas de la ciencia y religiones falsas,</li>
+        <li>ideas erróneas de la cultura.</li>
+      </ul>
+    </div>
+    <p>Viniste a este mundo <strong>inocente</strong>, pero vas a <strong>elegir</strong> quién te va a <strong>moldear</strong>: el <strong>mundo</strong> o la <strong>Palabra de Dios</strong>.</p>
+    <div class="caja acento">
+      <span class="titulo-caja">TRANSFORMAR = metamorfosis</span>
+      La palabra <strong>TRANSFORMAR</strong> es la palabra <strong>metamorfosis</strong>: el proceso mediante el cual un pequeño <strong>gusano</strong> se convierte en <strong>mariposa</strong>.
+    </div>
+    <p>Si deseas ese tipo de <strong>transformación</strong> en tu ámbito físico y emocional —cambiando de la persona amargada, herida, enferma o derrotada en una persona victoriosa— Dios quiere que seas…</p>
+    <div class="biblia">
+      <em>Transformado</em> por medio de la <em>renovación de vuestro entendimiento</em> (por la Palabra de Dios).
+      <span class="ref">Romanos 12:2</span>
+    </div>
+    <p>La Palabra de Dios te enseña:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>toda verdad espiritual,</li>
+        <li>tus nuevos valores,</li>
+        <li>tus nuevas actitudes,</li>
+        <li>tu verdadera identidad.</li>
+      </ul>
+    </div>
+    <p>Pasarás de <strong>CONFORMARTE</strong> a <strong>TRANSFORMARTE</strong> a lo que la <strong>Palabra de Dios</strong> dice acerca de ti; o sea, quién realmente eres.</p>
+
+    <h3 class="seccion" id="g5"><span class="num">G.5</span> Digiriendo la Palabra de Dios</h3>
+    <p>El <strong>CONOCIMIENTO</strong> de la Palabra de Dios es fundamental en este proceso. Pero además del conocimiento, debes tener:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>la <strong>comprensión</strong> de ello,</li>
+        <li>y su <strong>aplicación</strong>.</li>
+      </ul>
+    </div>
+    <div class="caja acento">
+      <span class="titulo-caja">El conocimiento es como llevarse comida a la boca <span class="nota">(el primer paso)</span></span>
+      <ul class="limpia">
+        <li>pero necesitas <strong>tragar</strong> esa comida</li>
+        <li>para que tu cuerpo la <strong>digiera</strong>,</li>
+        <li>y así los <strong>nutrientes</strong> y <strong>beneficios</strong> se <strong>liberan</strong> en todo tu <strong>cuerpo</strong>.</li>
+      </ul>
+    </div>
+    <p>El <strong>conocimiento</strong> de la Palabra de Dios es importante, pero SOLO si empiezas a <strong>entenderlo</strong>, a <strong>estudiarlo</strong> y a <strong>meditarlo</strong>, para que puedas <strong>liberar la vida</strong> que hay en él.</p>
+    <div class="biblia">
+      <em>Ya no debéis andar como andan los demás gentiles</em>, en la <em>futilidad</em> (inutilidad) de su <em>mente</em> (alma, carne), <em>teniendo su entendimiento oscurecido</em> (en tinieblas), <em>alienados</em> (excluidos) de la <em>vida de Dios</em>, por la <em>ignorancia</em> que hay en ellos, por la <em>ceguera</em> de su corazón.
+      <span class="ref">Efesios 4:17-18</span>
+    </div>
+    <div class="caja">
+      <span class="titulo-caja">Dos caminos</span>
+      <p>Puedes elegir <strong>luchar la pelea tú mismo</strong>, tratando de luchar contra tus <strong>imperfecciones</strong>, concentrando tu <strong>mente</strong> en cómo <strong>evitar</strong> hacerlas, y luego caer y <strong>arrepentirte</strong> cada vez que fallas, y después <strong>repetir</strong> el <strong>ciclo</strong>, para vivir bajo <strong>condenación</strong>.</p>
+      <p>O bien, centrarte en <strong>quién</strong> ya eres en tu <strong>espíritu</strong> <span class="nota">(identidad)</span>: un <strong>hijo de Dios</strong>, una <strong>nueva criatura</strong>, <strong>guiado</strong> por el <strong>Espíritu Santo</strong>, para que el <strong>poder</strong> y la <strong>vida</strong> que ya están en ti fluyan hacia tu <strong>alma</strong> y tu <strong>cuerpo</strong>, viviendo así una vida <strong>victoriosa</strong> en Cristo Jesús.</p>
+    </div>
+    <p>En la medida en que te haces sensible al Espíritu, te va a guiar en qué hacer, a dónde ir, cuándo y cómo. No se trata de una lucha mental y continua contra tu propia carne, sino de un fluir de la <strong>guía</strong> y el <strong>poder</strong> que el <strong>Espíritu Santo</strong> pone en tu espíritu.</p>
+    <p>Los <strong>resultados</strong> que vas a obtener solo el <strong>Espíritu Santo</strong> los conoce, pero siempre son <strong>buenos</strong>, <strong>perfectos</strong> y <strong>agradables</strong> <span class="nota">(Romanos 12:2)</span>.</p>
+    <p>Pero si tu guía es tu <strong>mente</strong>, tu <strong>intelecto</strong> y tus <strong>emociones</strong>, buscando lo mejor <strong>por ti mismo</strong>, o lo más <strong>lógico</strong> a tu <strong>parecer</strong>, el resultado es <strong>muerte</strong>:</p>
+    <div class="biblia">
+      Yo soy la vid, vosotros los pámpanos; el que <em>permanece</em> en <em>mí</em>, y <em>yo</em> en <em>él</em>, este lleva <em>mucho fruto</em>; porque <em>separados</em> de <em>mí nada podéis hacer</em>.
+      <span class="ref">Juan 15:5</span>
+    </div>
+
+    <h3 class="seccion" id="g6"><span class="num">G.6</span> Piensa espiritualmente, no carnalmente</h3>
+    <p>Las Escrituras dicen que <strong>NO debemos caminar</strong>:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>como una persona que <strong>no tiene una relación con Dios</strong>,</li>
+        <li>como un gentil o un incrédulo.</li>
+      </ul>
+    </div>
+    <div class="biblia">
+      Porque el <em>ocuparse de la carne</em> es <em>muerte</em>, pero ocuparse <em>del Espíritu</em> es <em>vida y paz</em>.
+      <span class="ref">Romanos 8:6</span>
+    </div>
+    <p>Carnal no necesariamente significa pecado, pero todo <strong>pecado</strong> es <strong>carnal</strong>. Carnal significa vivir de los <strong>5 sentidos</strong>, dominado por lo que puedes:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>ver,</li>
+        <li>escuchar,</li>
+        <li>oler,</li>
+        <li>gustar,</li>
+        <li>sentir.</li>
+      </ul>
+    </div>
+    <div class="biblia">
+      Para los que <em>viven según la carne</em> <em>fijan su mente</em> en las cosas de la <em>carne</em>, pero los que <em>viven conforme al Espíritu</em>, las <em>cosas del Espíritu</em>.
+      <span class="ref">Romanos 8:5</span>
+    </div>
+    <div class="biblia">
+      Porque si vivís <em>conforme a la carne, moriréis</em>; pero si <em>por el Espíritu</em> hacéis <em>morir las obras de la carne</em>, <em>viviréis</em>.
+      <span class="ref">Romanos 8:13</span>
+    </div>
+    <div class="biblia">
+      Por lo tanto, <em>no dejes que el pecado reine</em> en tu <em>cuerpo mortal</em> (carne), para que lo <em>obedezcáis</em> en sus <em>concupiscencias</em>.
+      <span class="ref">Romanos 6:12</span>
+    </div>
+    <p>Puedes <strong>percibir</strong> la realidad <strong>más allá de</strong> la <strong>carne</strong>. Tu alma, a través de <strong>la fe</strong>, puede <strong>creer</strong> en la <strong>Palabra de Dios</strong>. Puedes <strong>creer</strong> cosas que <strong>no puedes ver</strong>.</p>
+    <div class="caja acento">
+      <span class="titulo-caja">Como una fórmula matemática</span>
+      <ul class="limpia">
+        <li>mentalidad espiritual&nbsp;&nbsp;=&nbsp;&nbsp;vida + paz</li>
+        <li>mentalidad carnal&nbsp;&nbsp;=&nbsp;&nbsp;muerte (no solo física)</li>
+      </ul>
+    </div>
+    <p>La muerte es resultado del pecado, que se manifiesta en:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>tristeza emocional,</li>
+        <li>soledad,</li>
+        <li>amargura,</li>
+        <li>enojo,</li>
+        <li>miedo,</li>
+        <li>y finalmente la muerte.</li>
+      </ul>
+    </div>
+    <p>Si andas como un incrédulo (gentil):</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>entonces NO estás recibiendo en tu mente las verdades espirituales,</li>
+        <li>sino que estarás dominado por lo natural.</li>
+      </ul>
+    </div>
+    <div class="biblia">
+      <em>Ya no andéis</em> como los otros <em>gentiles</em>, que andan en la <em>vanidad</em> de su <em>mente</em>, teniendo su <em>entendimiento oscurecido</em>, <em>ajenos</em> (excluidos) de la vida de Dios, por la <em>ignorancia</em> que en ellos hay, por la <em>dureza</em> de su <em>corazón</em>.
+      <span class="ref">Efesios 4:17-18</span>
+    </div>
+    <div class="caja acento">
+      Las personas nacidas de nuevo <strong>no</strong> pueden <strong>estar «en»</strong> la <strong>carne</strong>, pero <strong>sí</strong> pueden <strong>andar «según»</strong> la <strong>carne</strong>.
+    </div>
+
+    <h3 class="seccion" id="g7"><span class="num">G.7</span> Fe transformadora</h3>
+    <div class="biblia">
+      Que la <em>comunión</em> <span class="nota">(koinōnia: participación, comunicación, beneficio)</span> de vuestra <em>fe</em> pueda llegar a ser <em>eficaz</em> <span class="nota">(trabajar, ser productiva, cambio, transformación)</span> por el <em>reconocimiento</em> <span class="nota">(entender, digerir)</span> de <em>todo lo bueno</em> que <em>está en vosotros</em> (en tu espíritu) en <em>Cristo Jesús</em>.
+      <span class="ref">Filemón 1:6</span>
+    </div>
+    <p>Esta escritura <strong>NO</strong> dice:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>«<strong>por</strong>» ganar más fe,</li>
+        <li>«<strong>por</strong>» acudir a Dios para pedir nueva unción,</li>
+        <li>«<strong>por</strong>» pedir una doble porción,</li>
+        <li>«<strong>por</strong>» obtener más de Dios.</li>
+      </ul>
+    </div>
+    <p>Ya Dios te lo dio, ya lo puso en tu espíritu; dice que ya está en ti: «<strong>está en vosotros</strong>».</p>
+    <p>El <strong>entendimiento</strong> de «espíritu, alma y cuerpo»:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li><strong>no es</strong> cosa de un <strong>momento</strong>,</li>
+        <li><strong>ni</strong> es una <strong>sola cosa</strong> lo que cambiará tu vida en un instante,</li>
+        <li>pero sí, al entenderlo, <strong>iniciará</strong> el <strong>proceso</strong>.</li>
+      </ul>
+    </div>
+    <p>Es un pensamiento tan <strong>radical</strong> que:</p>
+    <div class="caja">
+      <ul class="limpia">
+        <li>te llevará a través de un <strong>proceso de transformación</strong>,</li>
+        <li>que no solo te <strong>beneficiará</strong> a ti, sino también a otras personas,</li>
+        <li>te dará una actitud diferente,</li>
+        <li>confianza,</li>
+        <li>y la seguridad para enfrentar los problemas y superarlos.</li>
+      </ul>
+    </div>
+    <p>Y tienes el potencial de creerlo:</p>
+    <div class="biblia">
+      <em>…para ser transformados</em> por medio de la <em>renovación de vuestro entendimiento</em>, <em>para que</em> comprobéis cuál sea la <em>buena voluntad de Dios, agradable y perfecta</em>.
+      <span class="ref">Romanos 12:1-2</span>
+    </div>
+
+    <!-- ===================== CIERRE ===================== -->
+    <h2 class="parte" id="cierre"><span class="letra">&#10022;</span> Un proceso, no un momento</h2>
+    <hr class="regla">
+    <div class="caja acento">
+      De esta manera empezarás <strong>a ver</strong> la <strong>perfección</strong> que ya está en tu <strong>espíritu</strong> <strong>desde el día de tu salvación</strong>.
+    </div>
+
+    <div class="pie">&#10086;</div>
+    <p class="cierre">«Y ahora el Dios de paz os santifique por completo;<br>y que todo tu espíritu, alma y cuerpo sean guardados irreprensibles…»<br>— 1 Tesalonicenses 5:23</p>
+
+  </main>
+</div>
+
+<script>
+  const enlaces = [...document.querySelectorAll('nav.indice a')];
+  const secciones = enlaces
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+  const obs = new IntersectionObserver((entradas)=>{
+    entradas.forEach(e=>{
+      if(e.isIntersecting){
+        enlaces.forEach(a=>a.classList.remove('activo'));
+        const activo = document.querySelector('nav.indice a[href="#'+e.target.id+'"]');
+        if(activo) activo.classList.add('activo');
+      }
+    });
+  },{rootMargin:'-15% 0px -75% 0px'});
+  secciones.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

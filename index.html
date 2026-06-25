@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espíritu, Alma y Cuerpo · Spirit, Soul and Body</title>
+<style>
+  :root{
+    --bg:#f6f9f4;
+    --salvia-2:#dfecd8;
+    --salvia-borde:#bcd4b0;
+    --verde-hondo:#3f6b4c;
+    --verde-titulo:#365c41;
+    --oro:#c9a24b;
+    --oro-suave:#e8d6a8;
+    --rosa-bg:#fceef1;
+    --rosa-borde:#eac4d0;
+    --rosa-texto:#824a5e;
+    --texto:#2f3a33;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;min-height:100vh;
+    font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;
+    color:var(--texto);
+    background:
+      radial-gradient(circle at 15% 10%, #ffffff 0%, transparent 45%),
+      linear-gradient(155deg,#eef5e9 0%,#f7eef1 100%),
+      var(--bg);
+    display:flex;align-items:center;justify-content:center;padding:32px;
+  }
+  .tarjeta{
+    max-width:680px;width:100%;text-align:center;
+    background:rgba(255,255,255,.55);
+    border:1px solid var(--oro-suave);border-radius:24px;
+    padding:56px 40px 48px;
+    box-shadow:0 16px 50px -26px rgba(63,107,76,.5);
+    position:relative;
+  }
+  .tarjeta::before{
+    content:"";position:absolute;inset:14px;
+    border:1px solid var(--salvia-borde);border-radius:18px;pointer-events:none;
+  }
+  .orn{color:var(--oro);font-size:26px;letter-spacing:8px;}
+  h1{
+    font-size:38px;color:var(--verde-titulo);margin:14px 0 4px;
+    font-weight:600;letter-spacing:.5px;line-height:1.2;
+  }
+  h2{
+    font-size:24px;color:var(--rosa-texto);margin:0 0 8px;
+    font-weight:600;font-style:italic;
+  }
+  .sub{font-size:17px;color:var(--verde-hondo);margin:0 0 36px;font-style:italic;}
+  .divisor{color:var(--oro);font-size:16px;letter-spacing:10px;margin:0 0 34px;}
+  .opciones{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
+  a.boton{
+    display:block;text-decoration:none;
+    background:#fff;border:1px solid var(--salvia-borde);
+    border-radius:16px;padding:24px 30px;min-width:220px;
+    transition:transform .2s, box-shadow .2s, border-color .2s;
+    box-shadow:0 8px 24px -18px rgba(63,107,76,.6);
+  }
+  a.boton:hover{
+    transform:translateY(-4px);
+    border-color:var(--oro);
+    box-shadow:0 14px 34px -18px rgba(63,107,76,.7);
+  }
+  a.boton .idioma{
+    display:block;font-size:22px;color:var(--verde-titulo);font-weight:600;margin-bottom:4px;
+  }
+  a.boton .titulo{
+    display:block;font-size:15px;color:var(--rosa-texto);font-style:italic;
+  }
+  .pie{margin-top:38px;color:var(--oro);font-size:18px;letter-spacing:6px;}
+  .verso{
+    margin-top:14px;font-size:14.5px;color:var(--verde-hondo);
+    font-style:italic;line-height:1.6;
+  }
+</style>
+</head>
+<body>
+  <div class="tarjeta">
+    <div class="orn">&#10086;</div>
+    <h1>Espíritu, Alma y Cuerpo</h1>
+    <h2>Spirit, Soul and Body</h2>
+    <p class="sub">Elige un idioma · Choose a language</p>
+    <div class="divisor">&#10022; &#10022; &#10022;</div>
+
+    <div class="opciones">
+      <a class="boton" href="Spirit-Soul-Body-SP.html">
+        <span class="idioma">Español</span>
+        <span class="titulo">Espíritu, Alma y Cuerpo</span>
+      </a>
+      <a class="boton" href="Spirit-Soul-Body-EN.html">
+        <span class="idioma">English</span>
+        <span class="titulo">Spirit, Soul and Body</span>
+      </a>
+    </div>
+
+    <div class="pie">&#10086;</div>
+    <p class="verso">
+      «Y ahora el Dios de paz os santifique por completo…»<br>
+      "Now may the God of peace Himself sanctify you completely…"<br>
+      — 1 Tesalonicenses 5:23 · 1 Thessalonians 5:23
+    </p>
+  </div>
+</body>
+</html>
